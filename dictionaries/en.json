@@ -1,0 +1,13 @@
+{
+    "products": {
+      "cart": "Add to Cart"
+    },
+    "metadata" : {
+      "title": "Shopify Theme",
+      "description": "Shopify Theme",
+      "keywords": "Shopify Theme"
+    },
+    "index" : {
+      "dummy" : "Open-source SaaS Starter Kit and Boilerplate for Next.js"
+    }
+  }
