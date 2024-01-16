@@ -37,7 +37,7 @@ export function middleware(request :NextRequest) {
 export const config = {
   matcher: [
     // Skip all internal paths (_next)
-    '/((?!_next|api|images).*)',
+    '/((?!_next|api|images|favicon.ico).*)',
     // Optional: only run on root (/) URL
     // '/'
   ],
