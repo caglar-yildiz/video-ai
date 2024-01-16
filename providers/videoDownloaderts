@@ -1,0 +1,10 @@
+export type DownloaderInputParams = {
+  link: string;
+  startAt: string;
+  finishAt: string;
+  providerName: "youtube" | "vimeo" | "tiktok";
+};
+
+const Downloader = async (params: DownloaderInputParams) => {
+
+    }

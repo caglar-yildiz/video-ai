@@ -3,6 +3,11 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Getting Started
 
 First, run the development server:
+postgres needs to be downloaded
+npx prisma generate
+npx prisma migrate dev
+npm install -g dotenv-cli
+npx dotenv -e .env.local -- npx prisma studio
 
 ```bash
 npm run dev

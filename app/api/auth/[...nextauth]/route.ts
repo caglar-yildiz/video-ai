@@ -5,14 +5,13 @@ import LinkedIn from "@auth/core/providers/linkedin"
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
-import { prisma } from "@/app/util/connectDB";
 
  
- const client =  prisma
+const prisma = new PrismaClient()
 
 export const authOptions: NextAuthOptions = {
 
-  adapter: PrismaAdapter(client),
+  adapter: PrismaAdapter(prisma),
   secret: process.env.SECRET,
   session: {
     strategy: "jwt",
@@ -33,7 +32,7 @@ export const authOptions: NextAuthOptions = {
         }
 
         // check to see if user already exist
-        const user = await client.user.findUnique({
+        const user = await prisma.user.findUnique({
           where: {
             email: credentials.email,
           },
@@ -61,8 +60,8 @@ export const authOptions: NextAuthOptions = {
       },
     }),
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID + "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET + "",
     }),
   ],
 

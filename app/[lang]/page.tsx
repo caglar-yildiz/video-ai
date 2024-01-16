@@ -3,19 +3,13 @@ import { getDictionary } from "./dictionaries";
 import { locales, Lang } from "@/middleware";
 import ScrollUp from "@/components/common/ScrollUp";
 import Hero from "@/components/Hero";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../api/auth/[...nextauth]/route";
+import TabsDemo from "@/components/tabs";
 
 export default async function Home({ params }: any) {
+  // use session to determine if user is logged in
+  const session = await getServerSession(authOptions);
   const { lang } = params;
   console.log(lang);
   const dict = await getDictionary(lang);
@@ -23,22 +17,15 @@ export default async function Home({ params }: any) {
     <div>
       <ScrollUp />
       <Hero dict={dict} />
-      <AlertDialog>
-        <AlertDialogTrigger>Open</AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      {session ? (
+        <div className="flex-1 items-center">
+          <TabsDemo />
+        </div>
+      ) : (
+        <>
+          <h1>Not logged in</h1>
+        </>
+      )}
     </div>
   ); // Add to Cart
 }
