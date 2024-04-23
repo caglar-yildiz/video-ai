@@ -1,0 +1,62 @@
+{
+  "siteConfig": {
+    "name": "ITRANSL8",
+    "description": "KI-Videoerstellung und Sprachausgabe für alle",
+    "url": "https://dubbing-ai.vercel.app/",
+    "hostingRegion": "fra1",
+    "keywords": [
+      "Videoerstellung",
+      "KI",
+      "Sprachausgabe",
+      "Videobearbeitung",
+      "Videoerstellung",
+      "Videomarketing",
+      "Videoerstellung",
+      "Video",
+      "Videomacher",
+      "Videokreator",
+      "Videoeditor",
+      "Videosoftware",
+      "Video-App",
+      "Video-SaaS",
+      "Video-API"
+    ],
+    "navItems": {
+      "title": {
+        "about": "Über uns",
+        "pricing": "Preise",
+        "faq": "FAQ",
+        "blog": "Blog",
+        "products" : "Products",
+        "dubbing" : "Dubbing",
+        "speech" : "Speech"
+      }
+    },
+    "footerItems": {
+      "company": {
+        "about": "Über uns",
+        "privacy": "Datenschutz",
+        "careers": "Karriere",
+        "faq": "FAQ",
+        "blog": "Blog"
+      },
+      "support": {
+        "about": "Über uns",
+        "privacy": "Datenschutz",
+        "careers": "Karriere",
+        "faq": "FAQ",
+        "blog": "Blog"
+      },
+      "inspiration": {
+        "about": "Über uns",
+        "privacy": "Datenschutz",
+        "careers": "Karriere",
+        "faq": "FAQ",
+        "blog": "Blog"
+      }
+    },
+    "buttons" : {
+      "gotoDashboard" : "Go to Dashboard"
+    }
+  }
+}

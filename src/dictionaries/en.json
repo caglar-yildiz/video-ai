@@ -1,0 +1,68 @@
+{
+  "siteConfig": {
+    "name": "ITRANSL8",
+    "description": "AI Video Generation and Voice Over for Everyone",
+    "url": "https://dubbing-ai.vercel.app/",
+    "hostingRegion": "fra1",
+    "keywords": [
+      "Video Generation",
+      "AI",
+      "Voiceover",
+      "Video Editing",
+      "Video Creation",
+      "Video Marketing",
+      "Video Production",
+      "Video",
+      "Video Maker",
+      "Video Creator",
+      "Video Editor",
+      "Video Software",
+      "Video App",
+      "Video SaaS",
+      "Video API"
+    ],
+    "navItems": {
+      "title": {
+        "about": "About",
+        "pricing": "Pricing",
+        "faq": "FAQ",
+        "blog": "Blog",
+        "products" : "Products",
+        "dubbing" : "Dubbing",
+        "speech" : "Speech"
+      }
+    },
+    "footerItems": {
+      "company": {
+        "about": "About",
+        "privacy": "Privacy",
+        "careers": "Careers",
+        "faq": "FAQ",
+        "blog": "Blog"
+      },
+      "support": {
+        "about": "About",
+        "privacy": "Privacy",
+        "careers": "Careers",
+        "faq": "FAQ",
+        "blog": "Blog"
+      },
+      "Inspiration": {
+        "about": "About",
+        "privacy": "Privacy",
+        "careers": "Careers",
+        "faq": "FAQ",
+        "blog": "Blog"
+      }
+    },
+    "buttons" : {
+      "gotoDashboard" : "Go to Dashboard",
+      "getStarted" : "Get Started",
+      "new" : "New",
+      "generate" : "Generate",
+      "save" : "Save",
+      "upload" : "Upload",
+      "submit" : "Submit"
+    }
+  }
+}

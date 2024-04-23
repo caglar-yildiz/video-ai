@@ -1,0 +1,62 @@
+{
+  "siteConfig": {
+    "name": "ITRANSL8",
+    "description": "Herkes için Yapay Zeka Video Üretimi ve Seslendirme",
+    "url": "https://dubbing-ai.vercel.app/",
+    "hostingRegion": "fra1",
+    "keywords": [
+      "Video Üretimi",
+      "Yapay Zeka",
+      "Seslendirme",
+      "Video Düzenleme",
+      "Video Oluşturma",
+      "Video Pazarlama",
+      "Video Üretimi",
+      "Video",
+      "Video Yapımcısı",
+      "Video Oluşturucu",
+      "Video Editör",
+      "Video Yazılımı",
+      "Video Uygulaması",
+      "Video SaaS",
+      "Video API"
+    ],
+    "navItems": {
+      "title": {
+        "about": "Hakkında",
+        "pricing": "Fiyatlandırma",
+        "faq": "SSS",
+        "blog": "Blog",
+        "products" : "Ürünler",
+        "dubbing" : "Dubbing",
+        "speech" : "Speech"
+      }
+    },
+    "footerItems": {
+      "company": {
+        "about": "Hakkında",
+        "privacy": "Gizlilik",
+        "careers": "Kariyer",
+        "faq": "SSS",
+        "blog": "Blog"
+      },
+      "support": {
+        "about": "Hakkında",
+        "privacy": "Gizlilik",
+        "careers": "Kariyer",
+        "faq": "SSS",
+        "blog": "Blog"
+      },
+      "inspiration": {
+        "about": "Hakkında",
+        "privacy": "Gizlilik",
+        "careers": "Kariyer",
+        "faq": "SSS",
+        "blog": "Blog"
+      }
+    },
+    "buttons" : {
+      "gotoDashboard" : "Go to Dashboard"
+    }
+  }
+}
