@@ -1,37 +1,26 @@
 {
   "siteConfig": {
     "name": "ITRANSL8",
-    "description": "KI-Videoerstellung und Sprachausgabe für alle",
+    "description": "KI Videoerstellung und Voice Over für Alle",
     "url": "https://dubbing-ai.vercel.app/",
     "hostingRegion": "fra1",
     "keywords": [
       "Videoerstellung",
       "KI",
-      "Sprachausgabe",
+      "Voiceover",
       "Videobearbeitung",
-      "Videoerstellung",
+      "Videoproduktion",
       "Videomarketing",
-      "Videoerstellung",
+      "Videoproduktion",
       "Video",
       "Videomacher",
-      "Videokreator",
+      "Videokünstler",
       "Videoeditor",
-      "Videosoftware",
-      "Video-App",
-      "Video-SaaS",
-      "Video-API"
+      "Videoprogramm",
+      "Vide App",
+      "Video SaaS",
+      "Video API"
     ],
-    "navItems": {
-      "title": {
-        "about": "Über uns",
-        "pricing": "Preise",
-        "faq": "FAQ",
-        "blog": "Blog",
-        "products" : "Products",
-        "dubbing" : "Dubbing",
-        "speech" : "Speech"
-      }
-    },
     "footerItems": {
       "company": {
         "about": "Über uns",
@@ -47,7 +36,7 @@
         "faq": "FAQ",
         "blog": "Blog"
       },
-      "inspiration": {
+      "Inspiration": {
         "about": "Über uns",
         "privacy": "Datenschutz",
         "careers": "Karriere",
@@ -56,7 +45,189 @@
       }
     },
     "buttons" : {
-      "gotoDashboard" : "Go to Dashboard"
+      "gotoDashboard" : "Zum Dashboard",
+      "getStarted" : "Loslegen",
+      "new" : "Neu",
+      "generate" : "Generieren",
+      "save" : "Speichern",
+      "upload" : "Hochladen",
+      "submit" : "Absenden",
+      "signUp" : "Anmelden",
+      "login" : "Einloggen",
+      "buyNow" : "Jetzt Kaufen"
     }
-  }
+  },
+  "navItems": {
+    "title": {
+      "about": "Über uns",
+      "pricing": "Preise",
+      "faq": "FAQ",
+      "blog": "Blog",
+      "products": "Produkte",
+      "dubbing": "Synchronisation",
+      "speech": "Rede"
+    }
+  },
+  "features" : [
+    {
+      "title": "Revolutionieren Sie Ihre Videoinhalte mit globalen Übersetzungen",
+      "description":
+      "ITRANSL8 revolutioniert die Videoübersetzung und bietet Ihnen nahtlosen Zugriff auf 21 Sprachen per Knopfdruck. Egal ob Inhalte von YouTube, TikTok, Instagram oder Twitter oder direkt von Ihrem Computer, unsere Plattform liefert unvergleichliche Qualität zum wettbewerbsfähigsten Preis. Tauchen Sie heute in eine grenzenlose digitale Erfahrung ein und bringen Sie Ihre Videos mühelos einem globalen Publikum nahe"
+    },
+    {
+      "title": "Globale Reichweite, Lokale Note",
+      "description":
+      "ITRANSL8 ist mehr als ein Übersetzungsdienst; es ist eine Brücke zu einem globalen Publikum. Mit nur einem Klick übersetzen Sie Ihre Videos in 21 Sprachen und stellen sicher, dass Ihre Botschaft weit und breit gehört wird. Ob Hochladen aus sozialen Medien oder direkt von Ihrem Gerät, wir garantieren eine nahtlose, qualitativ hochwertige Erfahrung, die in puncto Erschwinglichkeit unübertroffen ist. Lassen Sie uns Ihre Inhalte global machen"
+    },
+    {
+      "title": "Sprechen Sie mühelos jedermanns Sprache",
+      "description":
+      "Entfesseln Sie das volle Potenzial Ihrer Videoinhalte mit der Ein-Klick-Übersetzungslösung von ITRANSL8. Bedienen Sie ein globales Publikum, indem Sie Ihre Videos in 21 verschiedene Sprachen übersetzen, ohne Qualität oder Budget zu opfern. Unsere intuitive Plattform unterstützt Uploads von Ihrem Computer oder direkt aus sozialen Medien und stellt sicher, dass Ihre Botschaft überall klar und deutlich gehört wird"
+    },
+    {
+      "title": "Von lokal zu global: Verwandeln Sie Ihre Videos",
+      "description":
+      "ITRANSL8 bietet eine einzigartige Gelegenheit, Ihre Videos von lokalen Favoriten zu globalen Hits zu machen. Unsere KI-gesteuerten Übersetzungen in 21 Sprachen stellen sicher, dass Ihre Inhalte bei einem weltweiten Publikum Anklang finden. Einfache Uploads, ob von Ihrem Gerät oder aus sozialen Medien, kombiniert mit unseren wettbewerbsfähigen Preisen machen ITRANSL8 zur idealen Lösung für Schöpfer, die eine breitere Reichweite anstreben"
+    }
+  ],
+  "messages" : [
+    "Sprachbarrieren in Videos weltweit überwinden",
+    "Verbinden Sie sich mit einem globalen Publikum: Übersetzen Sie Videos sofort in eine andere Sprache zu unschlagbaren Preisen",
+    "Entfesseln Sie globale Zielgruppen mit der einfachen Videoübersetzung von ITRANSL8",
+    "Von lokal zu global – Heben Sie Ihre Videos mit einfacher, Ein-Klick-Sprachübersetzung auf die nächste Stufe",
+    "Sprechererkennung",
+    "Sprecher automatisch identifizieren",
+    "Unsere intelligenten Algorithmen erkennen Sprecher und gewährleisten eine genaue Synchronisation und ein nahtloses Seherlebnis",
+    "Hochwertige Implementierung",
+    "Perfekte Klänge",
+    "Unsere KI-generierten Designs sind optisch ansprechend und reaktionsschnell. Von Layout bis Typografie, wir haben alles im Griff",
+    "Abonnieren Sie unseren Newsletter",
+    "Sind Sie bereit, am Puls der Zeit zu bleiben? Unser Newsletter liefert exklusive Updates zu wichtigen Produktveröffentlichungen und spannenden Veränderungen",
+    "Sie sind bereits abonniert",
+    "Sie haben unseren Newsletter erfolgreich abonniert",
+    "Etwas ist schiefgelaufen",
+    "Bitte versuchen Sie es erneut",
+    "Lassen Sie uns in Kontakt bleiben",
+    "Zögern Sie nicht, uns bei Fragen zu kontaktieren. Obwohl wir immer gerne helfen, beachten Sie bitte, dass dies ein kostenloses Produkt ist und wir keine Antwortzeiten garantieren können. Wir würden auch gerne Ihr Feedback hören!",
+    "Danke für Ihre Anmeldung!",
+    "Wir werden uns melden, sobald wir bereit sind.",
+    "Entdecken Sie unsere Funktionen",
+    "Nutzen Sie eine vollständige Authentifizierung, Datenspeicherung, Zahlungen, E-Mails und mehr, die Ihnen sofort zur Verfügung stehen."
+  ],
+  "formMessages": {
+    "name": "Name",
+    "password" : "Passwort",
+    "email": "E-Mail",
+    "signin" : "Einloggen",
+    "message": "Nachricht",
+    "submit": "Absenden",
+    "sending": "Wird gesendet...",
+    "success": "Ihre Nachricht wurde erfolgreich gesendet",
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut",
+    "phone": "Telefon",
+    "address": "Adresse",
+    "city": "Stadt",
+    "country": "Land",
+    "zip": "PLZ",
+    "state": "Bundesland",
+    "organization": "Organisation",
+    "subject": "Betreff",
+    "contactForm" : {
+      "placeholder": "Geben Sie hier Ihre Nachricht ein",
+      "success" : {
+        "title" : "Danke!",
+        "description" : "Ihre Nachricht wurde erfolgreich gesendet"
+      },
+      "error" : {
+        "title" : "Etwas ist schiefgelaufen",
+        "description" : "Bitte versuchen Sie es erneut"
+      }
+    },
+    "signinForm" : {
+      "messages" : [
+        "Mit Passwort fortfahren"
+      ]
+    }
+  },
+  "pages" : {
+    "about" : {
+      "messages": [
+        "Warum",
+        "Inhaltsersteller, die ihre Reichweite und Interaktion mit einem mehrsprachigen Publikum erweitern möchten. Influencer, die mit ihren Fans und Followern in deren Muttersprache kommunizieren und interagieren möchten.",
+        "Pädagogen, die ihre Kurse und Lektionen für Lernende unterschiedlicher Hintergründe und Fähigkeiten zugänglicher und integrativer gestalten möchten.",
+        "21 Sprachen, 1 Lösung:",
+        "Übersetzen Sie alles mühelos"
+      ]
+    },
+    "pricing" : {
+      "messages": [
+        "Unsere Pläne",
+        "Erleben Sie die Revolution in der Synchronisationstechnologie mit ITRANSL8. Wir bieten hocheffiziente, kostengünstige Lösungen, die Ihre Inhalte auf globale Standards heben. Entfesseln Sie die Kraft Ihrer Stimme mit ITRANSL8",
+        "Bester Wert"
+      ]
+    },
+    "signup" : {
+      "messages": [
+        "Anmelden",
+        "Melden Sie sich an, um mit ITRANSL8 zu beginnen.",
+        "Haben Sie bereits ein Konto?",
+        "Passwort vergessen?",
+        "Erneut senden",
+        "E-Mail-Bestätigungslink erneut senden",
+        "E-Mail-Bestätigungslink verloren?",
+        "Nutzungsbedingungen",
+        "Datenschutzbestimmungen"
+      ]
+    },
+    "login" : {
+      "messages": [
+        "Einloggen",
+        "Willkommen zurück! Melden Sie sich bei Ihrem ITRANSL8-Konto an und setzen Sie Ihre Reise zum globalen Erfolg fort.",
+        "Mit Passwort fortfahren",
+        "Sie haben noch kein Konto?",
+        "Anmelden",
+        "Passwort vergessen?",
+        "Jetzt zurücksetzen"
+      ]
+    },
+    "verifyEmail" : {
+      "messages": [
+        "Ungültiges E-Mail-Bestätigungstoken",
+        "Bitte kehren Sie zur Registrierungsseite zurück und versuchen Sie es erneut",
+        "Erneut versuchen",
+        "E-Mail erfolgreich verifiziert",
+        "Sie können sich jetzt in Ihr Konto einloggen",
+        "Zur Anmeldeseite gehen",
+        "Fehlendes E-Mail-Bestätigungstoken",
+        "Bitte kehren Sie zur Registrierungsseite zurück und versuchen Sie es erneut",
+        "Erneut versuchen"
+      ]
+    }
+  },
+  "frequentlyAskedQuestions" : [
+    {
+      "question": "Was ist Itansl8?",
+      "answer": "Itansl8 ist eine Plattform, die sich auf die Erstellung natürlicher KI-Stimmen in jeder Sprache und jedem Stil spezialisiert hat. Egal, ob Sie Inhaltsersteller, Autor, Spieleentwickler sind oder Chatbots erstellen, ElevenLabs bietet fortschrittliche KI-Technologie und intuitive Werkzeuge, um Ihre Audioerlebnisse zu verbessern. Hier sind einige Hauptmerkmale."
+    },
+    {
+      "question": "Was ist enthalten?",
+      "answer": "Itansl8 ermöglicht die Erstellung hochwertiger gesprochener Audiodaten in jeder Stimme, jedem Stil und jeder Sprache. Ihr KI-Modell rendert menschliche Intonation und Inflektionen mit unvergleichlicher Treue und passt die Lieferung basierend auf dem Kontext an. Sie können es für Videos, Spiele, KI-Chatbots und Hörbücher verwenden."
+    },
+    {
+      "question": "Warum sollte ich Itansl8 verwenden?",
+      "answer": "Erzeugen Sie naturgetreue Sprache in jeder Sprache und Stimme. Passen Sie die Sprachklarheit, Stabilität oder animierte Lieferung an. Ideal für digitale Schöpfer, bietet es hochwertige TTS-Streams sofort. Passen Sie die Sprachausgaben mühelos über eine intuitive Benutzeroberfläche an. Verwandeln Sie Text in lebendiges Audio in verschiedenen Sprachen und Akzenten."
+    },
+    {
+      "question": "Ich bin verwirrt über die Preisgestaltung",
+      "answer": "Unser Produkt ist völlig kostenlos und mit steigender Nutzung steigen die Preise. Der Preisteil könnte ein guter Ausgangspunkt sein. Wir haben Pläne und Absichten, dieses Produkt für eine breite Palette von Benutzern besser zu machen."
+    },
+    {
+      "question": "Ist es einfach zu bedienen? Wie fange ich an?",
+      "answer": "Itansl8 ist extrem einfach zu bedienen. Sie können beginnen, indem Sie sich registrieren."
+    },
+    {
+      "question": "Wird das Produkt aktiv gepflegt?",
+      "answer": "Ja! Wir verbessern unsere Plattform ständig durch die Hinzufügung aufregender neuer Funktionen und die Verfeinerung bestehender. Unser engagiertes Team ist bestrebt, die beste Erfahrung für unsere Benutzer zu bieten. Bleiben Sie dran für regelmäßige Updates! Wenn Sie als Erster von großen Veröffentlichungen erfahren möchten, sollten Sie den Newsletter abonnieren. Keine Sorge - wir werden Ihnen keine Spam-Nachrichten senden, wir versprechen es!"
+    }
+  ]
 }

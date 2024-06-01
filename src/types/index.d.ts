@@ -1,14 +1,14 @@
+import { PropsWithChildren } from "react"
+import * as React from "react"
 import type { Account, Profile, Session, User } from "next-auth"
 import type { JWT } from "next-auth/jwt"
 import { Lang } from "@/i18n-config"
-import { PropsWithChildren } from "react"
-import * as React from "react"
 
 export type LangPageProps = {
   params: {
-    lang: Lang;
-  };
-};
+    lang: Lang
+  }
+}
 
 export interface AISound {
   key: string
@@ -16,7 +16,7 @@ export interface AISound {
   title: string
   imageURL: string
   url: string
-  lang : string
+  lang: string
 }
 
 export interface NavItem {
@@ -24,8 +24,8 @@ export interface NavItem {
   href: string
   icon?: FunctionComponentElement<Props>
   disabled?: boolean
-  children?: NavItem[],
-  description? : string
+  children?: NavItem[]
+  description?: string
 }
 
 export interface NavItemFooter {
@@ -103,5 +103,6 @@ export interface Testimonial {
   avatar: string
 }
 
-
-type ComponentWithLocaleType<T = {}> = (props: PropsWithChildren<T & {locale : Lang}>) => React.ReactElement | Promise<React.ReactElement> | null;
+type ComponentWithLocaleType<T = {}> = (
+  props: PropsWithChildren<T & { locale: Lang }>
+) => React.ReactElement | Promise<React.ReactElement> | null

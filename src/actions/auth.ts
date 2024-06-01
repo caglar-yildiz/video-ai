@@ -54,6 +54,8 @@ async function signUpWithPasswordImpl(
       }),
     })
 
+    //if(emailSent.error) throw new Error(emailSent.error.message)
+
     return newUser && emailSent ? "success" : "error"
   } catch (error) {
     console.error(error)
@@ -85,20 +87,21 @@ async function signInWithPasswordImpl(
     await signIn("credentials", {
       email: rawInput.email,
       password: rawInput.password,
-      redirect: true,
-      redirectTo: "/dashboard",
+      redirect: false,
     })
 
     return "success"
   } catch (error) {
     console.error(error)
     if (error instanceof AuthError) {
-      if (error.type === "CredentialsSignin") {
-        return "invalid-credentials"
-      } else {
-        throw error
+      switch (error.type) {
+        case "CredentialsSignin":
+          return "invalid-credentials"
+        default:
+          throw error
       }
     } else {
+      console.log(error)
       throw new Error("Error signing in with password")
     }
   }
@@ -179,7 +182,7 @@ async function updatePasswordImpl(
   }
 }
 
-async function linkOAuthAccountImpl(
+/*async function linkOAuthAccountImpl(
   rawInput: LinkOAuthAccountInput
 ): Promise<void> {
   try {
@@ -195,7 +198,7 @@ async function linkOAuthAccountImpl(
     console.error(error)
     throw new Error("Error linking OAuth account")
   }
-}
+}*/
 
 export const signUpWithPassword = withValidation(
   signUpWithPasswordSchema,
@@ -213,7 +216,7 @@ export const updatePassword = withValidation(
   passwordUpdateSchemaExtended,
   updatePasswordImpl
 )
-export const linkOAuthAccount = withValidation(
+/*export const linkOAuthAccount = withValidation(
   linkOAuthAccountSchema,
   linkOAuthAccountImpl
-)
+)*/

@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import { subscribeToNewsletter } from "@/actions/newsletter"
+import { ComponentWithLocaleType } from "@/types"
 import {
   newsletterSignUpSchema,
   type NewsletterSignUpFormInput,
@@ -21,9 +22,12 @@ import {
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons/icons"
-import { ComponentWithLocaleType } from "@/types"
 
-export const NewsletterSignUpForm : ComponentWithLocaleType = ({locale}) => {
+export type NewsletterSignUpFormProps = {
+  messages : string[]
+}
+
+export const NewsletterSignUpForm = ({ messages } : NewsletterSignUpFormProps) => {
   const { toast } = useToast()
   const [isPending, startTransition] = React.useTransition()
 
@@ -42,7 +46,7 @@ export const NewsletterSignUpForm : ComponentWithLocaleType = ({locale}) => {
         switch (message) {
           case "exists":
             toast({
-              title: "You are subscribed already",
+              title: messages[0],
               variant: "destructive",
             })
             form.reset()
@@ -50,21 +54,21 @@ export const NewsletterSignUpForm : ComponentWithLocaleType = ({locale}) => {
           case "success":
             toast({
               title: "Thank you!",
-              description: "You have successfully subscribed to our newsletter",
+              description: messages[1],
             })
             form.reset()
             break
           default:
             toast({
-              title: "Something went wrong",
-              description: "Please try again",
+              title: messages[3],
+              description: messages[4],
               variant: "destructive",
             })
         }
       } catch (error) {
         toast({
-          title: "Something went wrong",
-          description: "Please try again",
+          title: messages[3],
+          description: messages[4],
           variant: "destructive",
         })
       }

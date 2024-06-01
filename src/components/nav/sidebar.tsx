@@ -1,11 +1,9 @@
-import Link from "next/link"
 import { auth } from "@/auth"
 
 import { getSiteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-// import { ThemeToggle } from "@/components/common/theme-toggle"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { buttonVariants } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,15 +12,32 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components//ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu"
 import { SignOutButton } from "@/components/app/auth/signout-button"
 import { Icons } from "@/components/icons/icons"
 import { DashboardNav } from "@/components/nav/dashboard-nav"
+import { prisma } from "@/db"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
+import LinkWrapper from "@/components/common/link-wrapper"
+import {  Lang } from "@/i18n-config"
+import { cookies, headers } from "next/headers"
+import * as React from "react"
+import { getCookie } from "cookies-next"
 
-export default async function Sidebar() {
-  const siteConfig = await getSiteConfig("en")
+const Sidebar = async () => {
+  const locale = getCookie("X-LOCALE", { cookies })
+  const siteConfig = await getSiteConfig(locale as Lang)
   const side_bar = siteConfig.side_nav_items
   const session = await auth()
+  let user = undefined;
+  if(session?.user && session?.user.email){
+    user = await prisma.user.findUnique({
+      where : {
+        email : session?.user.email
+      }
+    })
+  }
+
   return (
     <nav
       className={cn(
@@ -40,7 +55,19 @@ export default async function Sidebar() {
           <DashboardNav items={side_bar} />
         </div>
         <div className="py-3">
-          {session?.user && (
+          {session?.user && user && (
+            <>
+              <Card className={"bg-transparent"}>
+                <CardContent>
+                  <p className={"font-bold"}>Credits</p>
+                  <p className="flex items-center">Credits Left:  {" "} { user.credit + " "} </p>
+                </CardContent>
+                <CardFooter>
+                  <Button className="w-full">
+                    <LinkWrapper locale={locale as Lang} href={"/dashboard/credit"}> Buy More </LinkWrapper>
+                  </Button>
+                </CardFooter>
+              </Card>
             <DropdownMenu>
               <DropdownMenuTrigger className="outline-0 transition-all duration-300 ease-in-out hover:opacity-70">
                 <div className="flex items-center">
@@ -50,17 +77,16 @@ export default async function Sidebar() {
                       "size-12"
                     )}
                   >
-                    {session?.user.image ? (
-                      <AvatarImage
-                        src={session?.user.image}
-                        alt={session?.user.name ?? "user's profile picture"}
-                        className="size-7 rounded-full"
-                      />
-                    ) : (
-                      <AvatarFallback className="size-9 cursor-pointer p-1.5 text-xs capitalize">
-                        <Icons.user className="size-5 rounded-full" />
-                      </AvatarFallback>
-                    )}
+                    {session?.user.image && (
+                      <>
+                        <AvatarImage
+                          src={session?.user.image}
+                          alt={session?.user.name ?? "user's profile picture"}
+                          className="size-7 rounded-full"
+                        />
+                        <AvatarFallback className={"size-7 rounded-full bg-pink-600"}>{session?.user.name?.substring(0,1)}</AvatarFallback>
+                      </>
+                    ) }
                   </Avatar>
                   {session?.user.name ? (
                     <p className="ml-2 text-sm font-medium leading-none">
@@ -86,24 +112,26 @@ export default async function Sidebar() {
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                  <DropdownMenuItem asChild disabled>
-                    <Link href="/dashboard/account">
+                  <DropdownMenuItem asChild>
+                    <LinkWrapper locale={locale as Lang} href="/dashboard/account">
                       <Icons.avatar
                         className="mr-2 size-4"
                         aria-hidden="true"
                       />
                       Account
-                    </Link>
+                    </LinkWrapper>
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild disabled>
-                    <Link href="/dashboard/settings">
-                      <Icons.settings
-                        className="mr-2 size-4"
-                        aria-hidden="true"
-                      />
-                      Settings
-                    </Link>
-                  </DropdownMenuItem>
+                  { user?.role === "ADMIN" && (
+                    <DropdownMenuItem asChild>
+                      <LinkWrapper locale={locale as Lang} href="/dashboard/organization">
+                        <Icons.organization
+                          className="mr-2 size-4"
+                          aria-hidden="true"
+                        />
+                        Organization
+                      </LinkWrapper>
+                    </DropdownMenuItem>
+                  )}
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
@@ -111,9 +139,12 @@ export default async function Sidebar() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+            </>
           )}
         </div>
       </div>
     </nav>
   )
 }
+
+export default Sidebar

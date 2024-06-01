@@ -1,4 +1,8 @@
-export type Lang = "en" /*| "tr" | "de"*/
+import { Icons } from "@/components/icons/icons"
+import { ComponentType, ElementType, ReactNode } from "react"
+import { LucideIcon } from "lucide-react"
+
+export type Lang = "en" | "tr" | "de"
 
 interface Language {
   key: Lang
@@ -10,14 +14,14 @@ export const languages: Language[] = [
     key: "en",
     name: "English",
   },
-/*  {
+  {
     key: "tr",
     name: "Türkçe",
   },
   {
     key: "de",
     name: "Deutsch",
-  },*/
+  },
 ]
 const locales: string[] = languages.map((lang) => lang.key)
 

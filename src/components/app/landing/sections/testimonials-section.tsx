@@ -1,3 +1,4 @@
+import { ComponentWithLocaleType } from "@/types"
 import Balancer from "react-wrap-balancer"
 
 import { testimonials } from "@/data/testimonials"
@@ -9,9 +10,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { ComponentWithLocaleType } from "@/types"
 
-export const TestimonialsSection : ComponentWithLocaleType = ({locale}) =>  {
+export const TestimonialsSection: ComponentWithLocaleType = ({ locale }) => {
   return (
     <section
       id="testimonials-section"

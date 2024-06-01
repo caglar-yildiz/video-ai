@@ -10,9 +10,11 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Icons } from "@/components/icons/icons"
+import { NavItem } from "@/types"
 
 interface NavigationMobileProps {
   siteConfig: SiteConfig
+  navItems : NavItem[]
 }
 
 interface MobileLinkProps extends React.PropsWithChildren {
@@ -46,6 +48,7 @@ function MobileLink({
 
 export function NavigationMobile({
   siteConfig,
+  navItems
 }: Readonly<NavigationMobileProps>) {
   const segment = useSelectedLayoutSegment()
   const [isOpen, setIsOpen] = React.useState<boolean>(false)
@@ -73,7 +76,7 @@ export function NavigationMobile({
           </Link>
         </div>
         <div className="flex flex-col gap-4 pl-16 text-xl font-medium leading-none tracking-wide">
-          {siteConfig.navItems.map((item) => (
+          {navItems.map((item) => (
             <MobileLink
               key={item.title}
               href={item.href}

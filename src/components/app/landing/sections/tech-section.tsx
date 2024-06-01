@@ -25,7 +25,6 @@ export function TechSection(): JSX.Element {
               rel="noreferer"
               className="transition-all duration-200 ease-out hover:opacity-70"
             >
-              <Icon />
             </Link>
           )
         })}

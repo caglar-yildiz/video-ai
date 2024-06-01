@@ -1,9 +1,10 @@
 import React from "react"
 import Image from "next/image"
 import { LangPageProps } from "@/types"
+
 import { getSiteConfig } from "@/config/site"
 
-const About  = async ({ params: { lang } } : LangPageProps ) =>  {
+const About = async ({ params: { lang } }: LangPageProps) => {
   const siteConfig = await getSiteConfig(lang)
   return (
     <section id="about" className="pb-8 pt-20 lg:pb-[70px] lg:pt-[120px]">
@@ -13,28 +14,23 @@ const About  = async ({ params: { lang } } : LangPageProps ) =>  {
             <div className="w-full px-4 lg:w-1/2">
               <div className="mb-12 max-w-[540px] lg:mb-0">
                 <h2 className="mb-5 text-3xl font-bold leading-tight  sm:text-[40px] sm:leading-[1.2]">
-                  Why use{" "}
+                  {siteConfig.pages.about.messages[0]}
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    {siteConfig.name}?
+                    {" " +siteConfig.name + "?"}
                   </span>
                 </h2>
                 <p className="mb-10">
-                  Content creators who want to expand their reach and engagement
-                  with a multilingual audience. Influencers who want to connect
-                  and interact with their fans and followers in their native
-                  languages.
+                  {siteConfig.pages.about.messages[1]}
                   <br />
                   <br />
-                  Educators who want to make their courses and lessons more
-                  accessible and inclusive for learners of different backgrounds
-                  and abilities.
+                  {siteConfig.pages.about.messages[2]}
                 </p>
 
                 <a
                   href="/#"
                   className="inline-flex items-center justify-center rounded-md bg-primary px-7 py-3 text-center text-base font-medium text-white duration-300 hover:bg-primary/90"
                 >
-                  Know More
+                  {siteConfig.buttons.signUp}
                 </a>
               </div>
             </div>
@@ -64,17 +60,16 @@ const About  = async ({ params: { lang } } : LangPageProps ) =>  {
                     />
                   </div>
 
-                  <div className="relative z-10 mb-4 flex items-center justify-center overflow-hidden bg-primary px-6 py-12 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8">
+                  <div
+                    className="relative z-10 mb-4 flex items-center justify-center overflow-hidden bg-primary px-6 py-12 sm:mb-8 sm:h-[160px] sm:p-5 lg:mb-4 xl:mb-8">
                     <div>
-                      <span className="block text-5xl font-extrabold text-white">
-                        09
-                      </span>
+                      <span className="block text-5xl font-extrabold text-white"></span>
                       <span className="block text-base font-semibold text-white">
-                        We have
-                      </span>
+                          {siteConfig.pages.about.messages[3]}
+                        </span>
                       <span className="block text-base font-medium text-white text-opacity-70">
-                        Years of experience
-                      </span>
+                          {siteConfig.pages.about.messages[4]}
+                        </span>
                     </div>
                     <div>
                       <span className="absolute left-0 top-0 -z-10">
@@ -196,6 +191,5 @@ const About  = async ({ params: { lang } } : LangPageProps ) =>  {
     </section>
   )
 }
-
 
 export default About

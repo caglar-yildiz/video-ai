@@ -44,7 +44,7 @@ export default {
         return null
       },
     }),
-    EmailProvider({
+    /*EmailProvider({
       server: {
         host: env.RESEND_HOST,
         port: Number(env.RESEND_PORT),
@@ -53,6 +53,7 @@ export default {
           pass: env.RESEND_API_KEY,
         },
       },
+      from : env.RESEND_EMAIL_FROM,
       async sendVerificationRequest({
         identifier,
         url,
@@ -61,7 +62,7 @@ export default {
         url: string
       }) {
         try {
-          await resend.emails.send({
+            const result = await resend.emails.send({
             from: env.RESEND_EMAIL_FROM,
             to: [identifier],
             subject: `name magic link sign in`,
@@ -69,10 +70,11 @@ export default {
           })
 
           console.log("Verification email sent")
+          console.log("Verification email sent: " ,result)
         } catch (error) {
           throw new Error("Failed to send verification email")
         }
       },
-    }),
+    }),*/
   ],
 } satisfies NextAuthConfig

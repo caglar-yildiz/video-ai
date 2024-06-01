@@ -6,6 +6,8 @@ type ValidRequest = NextRequest & { body: { token: string } }
 
 // To handle a POST request to /api
 export async function POST(request: ValidRequest) {
+
+
   const body = await request.json()
   const token = body.token
   console.log(body)

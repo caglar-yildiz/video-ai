@@ -1,5 +1,5 @@
 import NextAuth from "next-auth"
-import { linkOAuthAccount } from "@/actions/auth"
+import { linkOAuthAccount } from "@/actions/user"
 import { getUserById } from "@/actions/user"
 import { prisma } from "@/db"
 import { env } from "@/env.mjs"
@@ -29,6 +29,19 @@ export const {
     async linkAccount({ user }) {
       if (user.id) await linkOAuthAccount({ userId: user.id })
     },
+    async createUser ({user}){
+      if (!user.id) return
+      await prisma.user.update(
+        {
+          where : {
+            id : user.id
+          },
+          data : {
+            credit : 50
+          }
+        }
+      )
+    }
   },
   callbacks: {
     async signIn({ user, account }) {

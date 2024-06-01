@@ -3,7 +3,7 @@
 import * as React from "react"
 import Balancer from "react-wrap-balancer"
 
-import { SiteConfig } from "@/config/site"
+import { SiteMessages } from "@/config/site"
 import { pricingPlans } from "@/data/pricing-plans"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -18,9 +18,9 @@ import { Switch } from "@/components/ui/switch"
 import { Icons } from "@/components/icons/icons"
 
 export function PricingSection({
-  siteConfig,
+  messages,
 }: Readonly<{
-  siteConfig: SiteConfig
+  messages: SiteMessages
 }>): JSX.Element {
   const [yearlyBilling, setYearlyBilling] = React.useState<boolean>(false)
 
@@ -34,18 +34,14 @@ export function PricingSection({
         <div className="flex flex-col items-center gap-6 text-center">
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
-              It&apos;s{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Free Forever!
+                {messages[0]}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[42rem] text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              {siteConfig.name} is completely free and open source. The pricing
-              section is there to serve as an example of how you could set it up
-              for your own SaaS product. We have no plans and no intentions to
-              make this a paid product.
+              {messages[1]}
             </Balancer>
           </h3>
         </div>

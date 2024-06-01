@@ -58,6 +58,9 @@ model User {
   subscription   Subscription?   @relation(fields: [subscriptionId], references: [id])
   subscriptionId String?
   dubbing   Dubbing[]
+  paymentTransactions PaymentTransaction[]
+  credit            Int?      @default(100)
+  BillingInfos BillingInfo?
 
   @@map("users")
 }
@@ -82,13 +85,26 @@ model NewsletterSubscriber {
 model Organization {
   id   String    @id @default(cuid())
   name String
+  email String  @unique
   users User[]
+  invites Invite[]
   @@map("organizations")
+}
+
+model Invite {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  email     String
+  organizationId   String
+  organization     Organization    @relation(fields: [organizationId], references: [id])
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
 }
 
 enum UserRole {
   USER
   ADMIN
+  DEVELOPER
 }
 
 model Subscription {
@@ -108,11 +124,12 @@ enum SubscriptionType {
   CUSTOM
 }
 
-
 model Country {
   id             String           @id @default(cuid())
+  code           String
   name           String
   subscriptions  Subscription[]
+  products  Product[]
   @@map("countries")
 }
 
@@ -132,8 +149,6 @@ model Dubbing {
   user  User  @relation(fields: [user_id], references : [id])
 }
 
-
-
 model Language {
   id  Int @id @default(autoincrement())
   name  String
@@ -144,9 +159,79 @@ model Language {
   @@map("languages")
 }
 
-enum  DubbingStatus {
+enum DubbingStatus {
   SUBMITTED
   PROCESSING
   COMPLETED
   FAILED
+}
+
+enum TransactionStatus {
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+model Product {
+  id                  Int                @id @default(autoincrement())
+  name                String
+  credits_amount      Int
+  price               Float
+  paymentTransactions PaymentTransaction[]
+  countryId           String
+  country             Country           @relation(fields: [countryId], references: [id])
+  descriptions        ProductDescription[]
+
+  @@map("products")
+}
+
+model ProductDescription {
+  id          Int      @id @default(autoincrement())
+  description String
+  productId   Int
+  product     Product  @relation(fields: [productId], references: [id])
+
+  @@map("product_descriptions")
+}
+
+model PaymentTransaction {
+  id                Int                  @id @default(autoincrement())
+  userId            String
+  productId         Int
+  amountPaid        Float                @map("amount_paid")
+  paymentMethod     String               @map("payment_method")
+  transactionAt     DateTime?             @default(now()) @map("transaction_date")
+  status            TransactionStatus
+  product           Product            @relation(fields: [productId], references: [id])
+  user              User                 @relation(fields: [userId], references: [id])
+  @@map("payment_transactions")
+}
+
+model BillingInfo {
+  id               Int      @id @default(autoincrement())
+  firstName        String
+  lastName         String
+  email            String
+  phoneNumber      String
+  billingAddress   String
+  billingCity      String
+  billingState     String?
+  billingPostalCode String
+  billingCountry   String
+  title            String
+  userId           String  @unique
+  User             User    @relation(fields: [userId], references: [id])
+}
+
+model FAQ {
+  id          Int      @id @default(autoincrement())
+  question    String
+  answer      String
+  lang        SupportedLang
+}
+
+enum SupportedLang {
+  en
+  tr
+  de
 }

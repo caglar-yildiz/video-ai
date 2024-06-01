@@ -19,21 +19,24 @@ interface NavigationProps {
   navItems: NavItem[]
 }
 
-export const Navigation : ComponentWithLocaleType<NavigationProps> = ({
+export const Navigation: ComponentWithLocaleType<NavigationProps> = ({
   navItems,
-  locale
+  locale,
 }) => {
   locale = "/" + locale
   return (
     <NavigationMenu className="hidden md:flex">
       <NavigationMenuList>
         {navItems.map((item) => {
-          if(!item.children) {
+          if (!item.children) {
             return (
               <NavigationMenuItem key={item.title} asChild>
                 <Link href={locale + item.href} legacyBehavior passHref>
                   <NavigationMenuLink
-                    className={cn(navigationMenuTriggerStyle(), "bg-transparent")}
+                    className={cn(
+                      navigationMenuTriggerStyle(),
+                      "bg-transparent"
+                    )}
                   >
                     {item.title}
                   </NavigationMenuLink>
@@ -47,7 +50,11 @@ export const Navigation : ComponentWithLocaleType<NavigationProps> = ({
                 <NavigationMenuContent>
                   <ul className="grid w-[230px] gap-3 p-4">
                     {item.children.map((subItem) => (
-                      <ListItem key={subItem.title} href={locale + subItem.href} title={subItem.title}>
+                      <ListItem
+                        key={subItem.title}
+                        href={locale + subItem.href}
+                        title={subItem.title}
+                      >
                         {subItem.description}
                       </ListItem>
                     ))}
@@ -56,7 +63,7 @@ export const Navigation : ComponentWithLocaleType<NavigationProps> = ({
               </NavigationMenuItem>
             )
           }
-          })}
+        })}
       </NavigationMenuList>
     </NavigationMenu>
   )

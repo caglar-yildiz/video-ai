@@ -3,7 +3,7 @@
 import React from "react"
 import { ComponentWithLocaleType } from "@/types"
 
-export const VideoSection : ComponentWithLocaleType = ({locale}) =>  {
+export const VideoSection: ComponentWithLocaleType = ({ locale }) => {
   return (
     <section
       id="tech-section"

@@ -1,10 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { FileVideo2 } from "lucide-react";
-import ReactPlayer from "react-player";
-
-
-
-
+import React, { useEffect, useState } from "react"
+import { FileVideo2 } from "lucide-react"
+import ReactPlayer from "react-player"
 
 export default function VideoPreview({ form, file }: any) {
   const [showVideo, setShowVideo] = useState(false)

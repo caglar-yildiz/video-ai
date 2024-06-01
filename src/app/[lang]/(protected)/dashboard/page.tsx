@@ -1,7 +1,7 @@
 import React from "react"
 import { LangPageProps } from "@/types"
 
-const DashboardPage = ({ params: { lang } } : LangPageProps ) =>  {
+const DashboardPage = ({ params: { lang } }: LangPageProps) => {
   return (
     <section className="py-24">
       <div className="container">

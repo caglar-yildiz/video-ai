@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { signInWithPassword } from "@/actions/auth"
 import {
   signInWithPasswordSchema,
@@ -24,9 +24,17 @@ import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
 import { PasswordInput } from "@/components/common/password-input"
 import { Icons } from "@/components/icons/icons"
+import { FormMessages } from "@/config/site"
 
-export function SignInWithPasswordForm(): JSX.Element {
+type SigninWithPasswordForm = {
+  formMessages : FormMessages
+}
+
+export function SignInWithPasswordForm({formMessages } :  SigninWithPasswordForm): JSX.Element {
   const router = useRouter()
+  const searchParams = useSearchParams()
+
+
   const { toast } = useToast()
   const [isPending, startTransition] = React.useTransition()
 
@@ -78,7 +86,7 @@ export function SignInWithPasswordForm(): JSX.Element {
               title: "Success!",
               description: "You are now signed in",
             })
-            router.push(DEFAULT_SIGNIN_REDIRECT)
+            router.push(searchParams.get("callbackUrl") || DEFAULT_SIGNIN_REDIRECT)
             break
           default:
             toast({
@@ -109,7 +117,7 @@ export function SignInWithPasswordForm(): JSX.Element {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{formMessages.email}</FormLabel>
               <FormControl>
                 <Input
                   type="text"
@@ -127,7 +135,7 @@ export function SignInWithPasswordForm(): JSX.Element {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{formMessages.password}</FormLabel>
               <FormControl>
                 <PasswordInput placeholder="********" {...field} />
               </FormControl>
@@ -142,12 +150,12 @@ export function SignInWithPasswordForm(): JSX.Element {
                 className="mr-2 size-4 animate-spin"
                 aria-hidden="true"
               />
-              <span>Signing in...</span>
+              <span>{formMessages.signin}...</span>
             </>
           ) : (
-            <span>Sign in</span>
+            <span>{formMessages.signin}</span>
           )}
-          <span className="sr-only">Sign in with email and password</span>
+          <span className="sr-only">{formMessages.signinForm.messages[0]}</span>
         </Button>
       </form>
     </Form>

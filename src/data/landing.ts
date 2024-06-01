@@ -19,7 +19,7 @@ export const dummySounds: AISound[] = [
   },
   {
     name: "Elif",
-    title: "Elifle tanis",
+    title: "Elif ile tanış",
     key: "3",
     imageURL: "/images/woman-image.png",
     url: "/mp3/itransl8-female-tr.mp3",
@@ -50,8 +50,8 @@ export const dummySounds: AISound[] = [
     lang: "en",
   },
   {
-    name: "Caglar",
-    title: "Caglar ile tanis",
+    name: "Çağlar",
+    title: "Çağlar ile tanış",
     key: "7",
     imageURL: "/images/man-image.png",
     url: "/mp3/itransl8-male-tr.mp3",

@@ -1,4 +1,5 @@
-import { ArrowLeft, Cog, Image, LayoutDashboard, User } from "lucide-react"
+import { ArrowLeft, Cog, Landmark, Image, LayoutDashboard, User, Undo } from "lucide-react"
+import { FaTurkishLiraSign, FaDollarSign, FaEuroSign } from "react-icons/fa6"
 
 type IconProps = React.HTMLAttributes<SVGElement>
 
@@ -8,6 +9,13 @@ export const Icons = {
   placeholder: Image,
   dashboard: LayoutDashboard,
   settings: Cog,
+  organization : Landmark,
+  currencySymbol : {
+    en : FaDollarSign,
+    tr: FaTurkishLiraSign,
+    de : FaEuroSign,
+  },
+  back : Undo,
   close: (props: IconProps) => (
     <svg
       {...props}

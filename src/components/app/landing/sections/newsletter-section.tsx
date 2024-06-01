@@ -1,9 +1,12 @@
+import { ComponentWithLocaleType } from "@/types"
 import Balancer from "react-wrap-balancer"
 
 import { NewsletterSignUpForm } from "@/components/forms/newsletter-signup-form"
-import { ComponentWithLocaleType } from "@/types"
+import { getSiteConfig } from "@/config/site"
 
-export const NewsletterSection : ComponentWithLocaleType  = ({locale}) => {
+export const NewsletterSection: ComponentWithLocaleType = async ({ locale }) => {
+  const siteConfig = await getSiteConfig(locale)
+
   return (
     <section
       id="newsletter-section"
@@ -14,25 +17,20 @@ export const NewsletterSection : ComponentWithLocaleType  = ({locale}) => {
         <div className="flex flex-col items-center gap-6 text-center">
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
-              Sing Up to{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Our Newsletter
+                {siteConfig.messages[10]}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[42rem] text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              Are you ready to stay ahead of the curve? Our newsletter delivers{" "}
-              <span className="font-semibold text-foreground">
-                exclusive updates
-              </span>{" "}
-              on major product releases and exciting changes.
+              {siteConfig.messages[11]}
             </Balancer>
           </h3>
         </div>
 
         <div className="w-full max-w-lg md:max-w-xl">
-          <NewsletterSignUpForm locale={locale} />
+          <NewsletterSignUpForm messages={[siteConfig.messages[12],siteConfig.messages[13],siteConfig.messages[14],siteConfig.messages[15]]} />
         </div>
       </div>
     </section>

@@ -21,17 +21,6 @@
       "Video SaaS",
       "Video API"
     ],
-    "navItems": {
-      "title": {
-        "about": "About",
-        "pricing": "Pricing",
-        "faq": "FAQ",
-        "blog": "Blog",
-        "products" : "Products",
-        "dubbing" : "Dubbing",
-        "speech" : "Speech"
-      }
-    },
     "footerItems": {
       "company": {
         "about": "About",
@@ -62,7 +51,184 @@
       "generate" : "Generate",
       "save" : "Save",
       "upload" : "Upload",
-      "submit" : "Submit"
+      "submit" : "Submit",
+      "signUp" : "Sign Up",
+      "login" : "Login",
+      "buyNow" : "Buy Now"
     }
-  }
+  },
+  "navItems": {
+    "title": {
+      "about": "About",
+      "pricing": "Pricing",
+      "faq": "FAQ",
+      "blog": "Blog",
+      "products": "Products",
+      "dubbing": "Dubbing",
+      "speech": "Speech"
+    }
+  },
+  "features" : [
+    {
+      "title": "Revolutionize Your Video Content with Global Translations",
+      "description":
+      "ITRANSL8 revolutionizes video translation, offering you seamless access to 21 languages at the touch of a button. Whether it's content from YouTube, TikTok, Instagram, or Twitter, or directly from your computer, our platform delivers unmatched quality at the most competitive price. Dive into a borderless digital experience today and bring your videos to a global audience with ease"
+    },
+    {
+      "title": "Global Reach, Local Touch",
+      "description":
+      "ITRANSL8 is more than a translation service; it's a bridge to a global audience. With just one click, translate your videos into 21 languages, ensuring your message reaches far and wide. Whether uploading from social media or directly from your device, we guarantee a seamless, quality experience that's unmatched in affordability. Let's take your content global"
+    },
+    {
+      "title": "Speak Everyone's Language, Effortlessly",
+      "description":
+      "Unlock the full potential of your video content with ITRANSL8's one-click translation solution. Cater to a global audience by translating your videos into 21 different languages, without sacrificing quality or your budget. Our intuitive platform supports uploads from your computer or directly from social media, ensuring your message is heard loud and clear, everywhere"
+    },
+    {
+      "title": "From Local to Global: Transform Your Videos",
+      "description":
+      "ITRANSL8 offers a unique opportunity to elevate your videos from local favorites to global hits. Our AI-driven translations into 21 languages ensure your content resonates with a worldwide audience. Easy uploads, whether from your device or social media, combined with our competitive pricing, make ITRANSL8 the go-to solution for creators seeking a broader reach"
+    }
+  ],
+  "messages" : [
+    "Bridging Language Barriers in Videos Globally",
+    "Connect with a Global Audience: Translate Video to another language Instantly at Unbeatable Prices",
+    "Unlock Global Audiences with ITRANSL8's Easy Video Translation",
+    "From Local to Global – Elevate Your Videos with Simple, One-Click Voice Translation.",
+    "Speaker Detection",
+    "Automatically Identify Speakers",
+    "Our smart algorithms identify speakers, ensuring accurate\n                    dubbing and a seamless viewing experience",
+    "High Quality Implementation",
+    "Perfect Sounds",
+    "Our AI-generated designs are visually appealing and\n                    responsive. From layout to typography, we've got you\n                    covered",
+    "Sing Up to Our Newsletter",
+    "Are you ready to stay ahead of the curve? Our newsletter delivers exclusive updates\n              on major product releases and exciting changes",
+    "You are subscribed already",
+    "You have successfully subscribed to our newsletter",
+    "Something went wrong",
+    "Please try again",
+    "Let us Get in Touch",
+    "Feel free to email us with any questions you might have. While we\n              are always happy to help, please keep in mind that this is a free\n              product and we cannot guarantee any response times. We would also\n              love to know your feedback!",
+    "Thank you for signing up!",
+    "We will be contacting you as soon as we are ready.",
+    "Discover Our Features",
+    "Take advantage of a fully authentication, data storage, payments,\n              emails, and more available to you instantly."
+
+  ],
+  "formMessages": {
+    "name": "Name",
+    "password" : "Password",
+    "email": "Email",
+    "signin" : "Sign In",
+    "message": "Message",
+    "submit": "Submit",
+    "sending": "Sending...",
+    "success": "Your message has been sent successfully",
+    "error": "Something went wrong. Please try again",
+    "phone": "Phone",
+    "address": "Address",
+    "city": "City",
+    "country": "Country",
+    "zip": "Zip",
+    "state": "State",
+    "organization": "Organization",
+    "subject": "Subject",
+    "contactForm" : {
+      "placeholder": "Enter your message here",
+      "success" : {
+        "title" : "Thank you!",
+        "description" : "Your message has been sent successfully"
+      },
+      "error" : {
+        "title" : "Something went wrong",
+        "description" : "Please try again"
+      }
+    },
+    "signinForm" : {
+      "messages" : [
+        "Continue with password"
+      ]
+    }
+  },
+  "pages" : {
+    "about" : {
+      "messages": [
+        "Why",
+        "Content creators who want to expand their reach and engagement with a multilingual audience. Influencers who want to connect and interact with their fans and followers in their native languages.\n,",
+        "Educators who want to make their courses and lessons more\n                  accessible and inclusive for learners of different backgrounds\n                  and abilities.",
+        "21 Languages, 1 Solution:",
+        "Translate anything, effortlessly"
+      ]
+    },
+    "pricing" : {
+      "messages": [
+        "Our Plans",
+        "Experience the revolution in dubbing technology with ITRANSL8. We provide high-efficiency, cost-effective solutions that elevate your content to global standards. Unleash the power of your voice with ITRANSL8",
+        "Best Value"
+      ]
+    },
+    "signup" : {
+      "messages": [
+        "Sign Up",
+        "Sign up to get started with ITRANSL8.",
+        "Already have an account?",
+        "Forgot your password?",
+        "Resend",
+        "Resend email verification link",
+        "Lost email verification link?",
+        "Terms of Service",
+        "Privacy Policy"
+      ]
+    },
+    "login" : {
+      "messages": [
+        "Sign In",
+        "Welcome back! Log in to your ITRANSL8 account and continue your journey to global success.",
+        "Continue with password",
+        "Do not have an account?",
+        "Sign up",
+        "Forgot your password?",
+        "Reset now"
+      ]
+    },
+    "verifyEmail" : {
+      "messages" : [
+        "Invalid Email Verification Token",
+        "Please return to the sign up page and try again",
+        "Try again",
+        "Email successfully verified",
+        "You can now sign in to your account",
+        "Go to Sign In page",
+        "Missing Email Verification Token",
+        "Please return to the sign up page and try again",
+        "Try again"
+      ]
+    }
+  },
+  "frequentlyAskedQuestions" : [
+    {
+      "question": "What is Itansl8?",
+      "answer": "Itansl8 is a platform that specializes in creating natural AI voices in any language and style. Whether you're a content creator, an author, a game developer, or building chatbots, ElevenLabs provides advanced AI technology and intuitive tools to enhance your audio experiences. Here are some key features."
+    },
+    {
+      "question": "What is included ?",
+      "answer": "Itansl8 lets you generate high-quality spoken audio in any voice, style, and language. Their AI model renders human intonation and inflections with unrivaled fidelity, adjusting the delivery based on context. You can use it for videos, gaming, AI chat bots audio books."
+    },
+    {
+      "question": "Why would I want to use Itansl8?",
+      "answer": "Generate lifelike speech in any language and voice. Customize vocal clarity, stability, or animated delivery. Ideal for digital creators, it provides high-quality TTS streaming instantly. Adjust voice outputs effortlessly through an intuitive interface. Turn text into lifelike audio across various languages and accents."
+    },
+    {
+      "question": "I am confused with pricing",
+      "answer": "Our product is completely free and with scaling usage price increases. The pricing section could be good place to start. We have plans and intentions to make this better product for wide range of users."
+    },
+    {
+      "question": "Is it easy to use? How do I get started?",
+      "answer": "Itansl8 is extremely easy to use. You can get started by registering."
+    },
+    {
+      "question": "Is the product actively maintained?",
+      "answer": "Yes! We're continuously enhancing our platform by adding exciting new features and refining existing ones. Our dedicated team is committed to delivering the best experience for our users. Stay tuned for regular updates! If you want to be the first to know about major releases, consider signing up for our newsletter. Don't worry—we won't spam you; we promise!"
+    }
+  ]
 }

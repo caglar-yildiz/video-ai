@@ -10,7 +10,6 @@ import {
   Text,
 } from "@react-email/components"
 
-import { getSiteConfig } from "@/config/site"
 import { absoluteUrl } from "@/lib/utils"
 
 interface ResetPasswordEmailProps {
@@ -18,13 +17,11 @@ interface ResetPasswordEmailProps {
   resetPasswordToken: string
 }
 
-export async function ResetPasswordEmail({
+export function ResetPasswordEmail({
   email,
   resetPasswordToken,
 }: Readonly<ResetPasswordEmailProps>) {
-  const siteConfig = await getSiteConfig("en")
-
-  const previewText = `${siteConfig.name} password reset.`
+  const previewText = `ITRANSL8 password reset.`
 
   return (
     <Html lang="en">
@@ -32,14 +29,13 @@ export async function ResetPasswordEmail({
         <title>{previewText}</title>
       </Head>
       <Preview>{previewText}</Preview>
-      <Tailwind>
         <Body>
           <Container>
             <Section>
               <Text className="text-xl">Hi,</Text>
               <Text className="text-base">
                 Someone just requested a password change for your{" "}
-                {siteConfig.name}
+                ITRANSL8
                 account associated with {email}.
               </Text>
               <Text className="text-base">
@@ -67,14 +63,13 @@ export async function ResetPasswordEmail({
               <Text className="text-base font-medium">
                 Enjoy{" "}
                 <span className="font-semibold tracking-wide">
-                  {siteConfig.name}
+                  ITRANSL8
                 </span>{" "}
                 and have a nice day!
               </Text>
             </Section>
           </Container>
         </Body>
-      </Tailwind>
     </Html>
   )
 }

@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react"
 import { AISound } from "@/types"
 
 import PlayPause from "@/components/button/play-pause"
-import FlagIcon  from "@/components/icons/flag-icon"
+import FlagIcon from "@/components/icons/flag-icon"
+import { Avatar, AvatarImage } from "@/components/ui/avatar"
 
 export type SoundCardProp = {
   isPlaying: boolean
@@ -48,14 +49,17 @@ const SoundCard = ({ sound, isPlaying, onClick }: SoundCardProp) => {
   }, [isPlaying, sound.url])
 
   return (
-    <div className="mb-2 flex w-full flex-row items-center rounded-2xl bg-transparent/10 px-4 py-2 hover:bg-transparent/20">
+    <div
+      className="mb-2 flex w-full flex-row items-center rounded-2xl bg-transparent/10 px-4 py-2 hover:bg-transparent/20">
       <div className="relative flex flex-1 flex-row items-center justify-start">
-        <img
-          src={sound.imageURL}
-          alt={sound.name}
-          className="h-20 w-20 rounded-full"
-        />
-        <div className={"absolute top-0 left-0"}>
+        <Avatar>
+          <AvatarImage
+            alt={"avatar"}
+            src={sound?.imageURL}
+            className={"size-7 rounded-full"}>
+          </AvatarImage>
+        </Avatar>
+        <div className={"absolute left-0 top-0"}>
           <FlagIcon countryCode={sound.lang} />
         </div>
 

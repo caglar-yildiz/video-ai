@@ -1,5 +1,6 @@
-import styles from "@/components/common/LanguageSelector.module.css"
 import * as React from "react"
+
+import styles from "@/components/common/LanguageSelector.module.css"
 
 interface FlagIconProps {
   countryCode: string

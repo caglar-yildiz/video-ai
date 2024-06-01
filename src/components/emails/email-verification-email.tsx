@@ -12,27 +12,24 @@ import {
   Text,
 } from "@react-email/components"
 
-import { getSiteConfig } from "@/config/site"
 
 interface EmailVerificationEmailProps {
   email: string
   emailVerificationToken: string
 }
 
-export async function EmailVerificationEmail({
+export  function EmailVerificationEmail({
   email,
   emailVerificationToken,
 }: Readonly<EmailVerificationEmailProps>) {
-  const siteConfig = await getSiteConfig("en")
 
-  const previewText = `${siteConfig.name} email verification.`
+  const previewText = `ITRANSL8 email verification.`
   return (
     <Html lang="en">
       <Head>
         <title>{previewText}</title>
       </Head>
       <Preview>{previewText}</Preview>
-      <Tailwind>
         <Body>
           <Container>
             <Section>
@@ -40,7 +37,7 @@ export async function EmailVerificationEmail({
               <Text className="text-base">
                 Your email address, {email}, was recently used to sign up at{" "}
                 <span className="font-semibold tracking-wide">
-                  {siteConfig.name}
+                  ITRANSL8
                 </span>
                 .
               </Text>
@@ -56,20 +53,19 @@ export async function EmailVerificationEmail({
 
             <Section>
               <Text className="text-xs">
-                If you didn&apos;t sign up at {siteConfig.name}, just ignore and
+                If you didn&apos;t sign up at ITRANSL8, just ignore and
                 delete this message.
               </Text>
               <Text className="text-base font-medium">
                 Enjoy{" "}
                 <span className="font-semibold tracking-wide">
-                  {siteConfig.name}
+                  ITRANSL8
                 </span>{" "}
                 and have a nice day!
               </Text>
             </Section>
           </Container>
         </Body>
-      </Tailwind>
     </Html>
   )
 }

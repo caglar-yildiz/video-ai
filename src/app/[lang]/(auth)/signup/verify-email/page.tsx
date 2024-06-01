@@ -15,6 +15,8 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Icons } from "@/components/icons/icons"
+import { Lang } from "@/i18n-config"
+import { getSiteConfig } from "@/config/site"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -23,27 +25,33 @@ export const metadata: Metadata = {
 }
 
 export interface VerifyEmailPageProps {
+  params: {
+    lang : Lang
+  }
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export default async function VerifyEmailPage({
+  params,
   searchParams,
 }: Readonly<VerifyEmailPageProps>): Promise<JSX.Element> {
   const emailVerificationToken = searchParams.token as string
+  const siteConfig = await getSiteConfig(params.lang)
 
   if (emailVerificationToken) {
     const user = await getUserByEmailVerificationToken({
       token: emailVerificationToken,
     })
 
+
     if (!user) {
       return (
         <div className="flex min-h-screen w-full items-center justify-center">
           <Card className="max-sm:flex max-sm:h-screen max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
             <CardHeader>
-              <CardTitle>Invalid Email Verification Token</CardTitle>
+              <CardTitle>{siteConfig.pages.verifyEmail.messages[0]}</CardTitle>
               <CardDescription>
-                Please return to the sign up page and try again
+                {siteConfig.pages.verifyEmail.messages[1]}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -57,7 +65,7 @@ export default async function VerifyEmailPage({
               >
                 <Icons.arrowLeft className="mr-2 h-4 w-4" />
                 <span className="sr-only">Try again</span>
-                Try again
+                {siteConfig.pages.verifyEmail.messages[2]}
               </Link>
             </CardContent>
           </Card>
@@ -72,9 +80,9 @@ export default async function VerifyEmailPage({
       <div className="flex min-h-screen w-full items-center justify-center">
         <Card className="max-sm:flex max-sm:h-screen max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
           <CardHeader>
-            <CardTitle>Email successfully verified</CardTitle>
+            <CardTitle>{siteConfig.pages.verifyEmail.messages[3]}</CardTitle>
             <CardDescription>
-              You can now sign in to your account
+              {siteConfig.pages.verifyEmail.messages[4]}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -84,7 +92,7 @@ export default async function VerifyEmailPage({
               className={buttonVariants()}
             >
               <span className="sr-only">Go to Sign In page</span>
-              Go to Sign In page
+              {siteConfig.pages.verifyEmail.messages[5]}
             </Link>
           </CardContent>
         </Card>
@@ -95,9 +103,9 @@ export default async function VerifyEmailPage({
       <div className="flex min-h-screen w-full items-center justify-center">
         <Card className="max-sm:flex max-sm:h-screen max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
           <CardHeader>
-            <CardTitle>Missing Email Verification Token</CardTitle>
+            <CardTitle>{siteConfig.pages.verifyEmail.messages[6]}</CardTitle>
             <CardDescription>
-              Please return to the sign up page and try again
+              {siteConfig.pages.verifyEmail.messages[7]}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -107,8 +115,8 @@ export default async function VerifyEmailPage({
               className={cn(buttonVariants({ variant: "secondary" }), "w-full")}
             >
               <Icons.arrowLeft className="mr-2 h-4 w-4" />
-              <span className="sr-only">Try again</span>
-              Try again
+              <span className="sr-only">{siteConfig.pages.verifyEmail.messages[8]}</span>
+              {siteConfig.pages.verifyEmail.messages[8]}
             </Link>
           </CardContent>
         </Card>

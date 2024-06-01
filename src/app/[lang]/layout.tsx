@@ -1,30 +1,16 @@
+import "./globals.css"
+import "flag-icons/css/flag-icons.min.css"
 
+import { Viewport } from "next"
+import { env } from "@/env.mjs"
+import { LangPageProps } from "@/types"
 
-
-import "./globals.css";
-import "flag-icons/css/flag-icons.min.css";
-
-
-
-import { Viewport } from "next";
-import { env } from "@/env.mjs";
-import { Lang } from "@/i18n-config";
-import { LangPageProps } from "@/types";
-
-
-
-import { fontHeading, fontInter, fontUrbanist } from "@/config/fonts";
-import { getSiteConfig } from "@/config/site";
-import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider";
-import { cn } from "@/lib/utils";
-import { Toaster } from "@/components/ui/toaster";
-import { TailwindIndicator } from "@/components/tailwind-indicator";
-
-
-
-
-
-// import CookieConsent, { Cookies }  from "react-cookie-consent"
+import { fontHeading, fontInter, fontUrbanist } from "@/config/fonts"
+import { getSiteConfig } from "@/config/site"
+import { SmoothScrollProvider } from "@/providers/smooth-scroll-provider"
+import { cn } from "@/lib/utils"
+import { Toaster } from "@/components/ui/toaster"
+import { TailwindIndicator } from "@/components/tailwind-indicator"
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -37,9 +23,9 @@ export const viewport: Viewport = {
   ],
 }
 
-
-export async function generateMetadata({ params : {lang} }: LangPageProps) {
+export async function generateMetadata({ params: { lang } }: LangPageProps) {
   const siteConfig = await getSiteConfig(lang)
+
 
   return {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

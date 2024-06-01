@@ -3,7 +3,7 @@ import { LangPageProps } from "@/types"
 
 // import { getSiteConfig } from '@/config/site'
 
-const Blog = ({ params: { lang } } : LangPageProps ) => {
+const Blog = ({ params: { lang } }: LangPageProps) => {
   // const siteConfig = await getSiteConfig('en')
   return (
     <div>

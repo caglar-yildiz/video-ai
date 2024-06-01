@@ -1,9 +1,11 @@
+import { ComponentWithLocaleType } from "@/types"
 import Balancer from "react-wrap-balancer"
 
 import { ContactForm } from "@/components/forms/contact-form"
-import { ComponentWithLocaleType } from "@/types"
+import { getSiteConfig } from "@/config/site"
 
-export const ContactSection : ComponentWithLocaleType = ({locale}) => {
+export const ContactSection: ComponentWithLocaleType =  async ({ locale }) => {
+  const siteConfig = await getSiteConfig(locale)
   return (
     <section
       id="contact-section"
@@ -14,23 +16,19 @@ export const ContactSection : ComponentWithLocaleType = ({locale}) => {
         <div className="flex flex-col items-center gap-8 text-center">
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
-              Let&apos;s{" "}
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Get in Touch
+               {siteConfig.messages["16"]}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[84rem] text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              Feel free to email us with any questions you might have. While we
-              are always happy to help, please keep in mind that this is a free
-              product and we cannot guarantee any response times. We would also
-              love to know your feedback!
+              {siteConfig.messages["17"]}
             </Balancer>
           </h3>
         </div>
 
-        <ContactForm />
+        <ContactForm formMessages={siteConfig.formMessages}/>
       </div>
     </section>
   )

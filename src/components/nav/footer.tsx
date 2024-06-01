@@ -1,11 +1,11 @@
+import { ComponentWithLocaleType } from "@/types"
 import Balancer from "react-wrap-balancer"
 
 import { getSiteConfig } from "@/config/site"
-import { NewsletterSignUpForm } from "@/components/forms/newsletter-signup-form"
 import LinkWrapper from "@/components/common/link-wrapper"
-import { ComponentWithLocaleType } from "@/types"
+import { NewsletterSignUpForm } from "@/components/forms/newsletter-signup-form"
 
-export const Footer : ComponentWithLocaleType = async ({locale}) =>  {
+export const Footer: ComponentWithLocaleType = async ({ locale }) => {
   const siteConfig = await getSiteConfig(locale)
   return (
     <footer
@@ -48,7 +48,7 @@ export const Footer : ComponentWithLocaleType = async ({locale}) =>  {
             <Balancer>Ready to stay informed? Subscribe now! 🚀</Balancer>
           </p>
 
-          <NewsletterSignUpForm locale={locale} />
+          <NewsletterSignUpForm messages={[siteConfig.messages[12],siteConfig.messages[13],siteConfig.messages[14],siteConfig.messages[15]]} />
         </div>
       </div>
     </footer>

@@ -1,37 +1,26 @@
 {
   "siteConfig": {
     "name": "ITRANSL8",
-    "description": "Herkes için Yapay Zeka Video Üretimi ve Seslendirme",
+    "description": "Herkes İçin AI Video Üretimi ve Seslendirme",
     "url": "https://dubbing-ai.vercel.app/",
     "hostingRegion": "fra1",
     "keywords": [
       "Video Üretimi",
-      "Yapay Zeka",
+      "AI",
       "Seslendirme",
       "Video Düzenleme",
       "Video Oluşturma",
       "Video Pazarlama",
-      "Video Üretimi",
+      "Video Prodüksiyon",
       "Video",
       "Video Yapımcısı",
-      "Video Oluşturucu",
-      "Video Editör",
+      "Video Yaratıcı",
+      "Video Editörü",
       "Video Yazılımı",
       "Video Uygulaması",
       "Video SaaS",
       "Video API"
     ],
-    "navItems": {
-      "title": {
-        "about": "Hakkında",
-        "pricing": "Fiyatlandırma",
-        "faq": "SSS",
-        "blog": "Blog",
-        "products" : "Ürünler",
-        "dubbing" : "Dubbing",
-        "speech" : "Speech"
-      }
-    },
     "footerItems": {
       "company": {
         "about": "Hakkında",
@@ -47,7 +36,7 @@
         "faq": "SSS",
         "blog": "Blog"
       },
-      "inspiration": {
+      "Inspiration": {
         "about": "Hakkında",
         "privacy": "Gizlilik",
         "careers": "Kariyer",
@@ -56,7 +45,189 @@
       }
     },
     "buttons" : {
-      "gotoDashboard" : "Go to Dashboard"
+      "gotoDashboard" : "Panel'e Git",
+      "getStarted" : "Başla",
+      "new" : "Yeni",
+      "generate" : "Üret",
+      "save" : "Kaydet",
+      "upload" : "Yükle",
+      "submit" : "Gönder",
+      "signUp" : "Kaydol",
+      "login" : "Giriş Yap",
+      "buyNow" : "Şimdi Satın Al"
     }
-  }
+  },
+  "navItems": {
+    "title": {
+      "about": "Hakkında",
+      "pricing": "Fiyatlandırma",
+      "faq": "SSS",
+      "blog": "Blog",
+      "products": "Ürünler",
+      "dubbing": "Dublaj",
+      "speech": "Konuşma"
+    }
+  },
+  "features" : [
+    {
+      "title": "Global Çevirilerle Video İçeriğinizi Devrimleştirin",
+      "description":
+      "ITRANSL8, video çevirisini devrim niteliğinde değiştiriyor ve size tek bir düğme dokunuşuyla 21 dile sorunsuz erişim sunuyor. YouTube, TikTok, Instagram veya Twitter’dan ya da doğrudan bilgisayarınızdan gelen içerikler olsun, platformumuz rakipsiz kaliteyi en rekabetçi fiyata sunar. Bugün sınırları olmayan dijital bir deneyime dalın ve videolarınızı kolayca küresel bir izleyici kitlesine ulaştırın"
+    },
+    {
+      "title": "Global Erişim, Yerel Dokunuş",
+      "description":
+      "ITRANSL8, sadece bir çeviri hizmeti değil; küresel bir izleyici kitlesine köprü kurar. Tek bir tıklamayla videolarınızı 21 dile çevirerek mesajınızın geniş kitlelere ulaşmasını sağlar. Sosyal medyadan veya doğrudan cihazınızdan yükleme yaparken, uygun fiyatlı, kaliteli bir deneyim garanti ederiz. İçeriğinizi global hale getirelim"
+    },
+    {
+      "title": "Herkesin Dilini Kolayca Konuşun",
+      "description":
+      "ITRANSL8'in tek tıklamayla çeviri çözümüyle video içeriğinizin tam potansiyelini açığa çıkarın. Videolarınızı 21 farklı dile çevirerek küresel bir izleyici kitlesine hitap edin, kaliteyi veya bütçenizi feda etmeden. Kullanıcı dostu platformumuz, bilgisayarınızdan veya doğrudan sosyal medyadan yüklemeleri destekleyerek mesajınızın her yerde net ve güçlü bir şekilde duyulmasını sağlar"
+    },
+    {
+      "title": "Yerelden Globale: Videolarınızı Dönüştürün",
+      "description":
+      "ITRANSL8, videolarınızı yerel favorilerden küresel hitlere yükseltmek için benzersiz bir fırsat sunar. AI destekli çevirilerimizle 21 dile videolarınızı çevirerek içeriğinizin dünya çapında yankı bulmasını sağlıyoruz. Cihazınızdan veya sosyal medyadan kolay yüklemeler ve rekabetçi fiyatlarımız ile ITRANSL8, daha geniş bir kitleye ulaşmak isteyen yaratıcılar için ideal çözümdür"
+    }
+  ],
+  "messages" : [
+    "Videolarda Dil Bariyerlerini Küresel Olarak Aşmak",
+    "Küresel Bir İzleyiciyle Bağlantı Kurun: Videoyu Başka Bir Dile Anında Çevirin, Eşsiz Fiyatlarla",
+    "ITRANSL8'in Kolay Video Çevirisiyle Küresel İzleyicilerin Kilidini Açın",
+    "Yerelden Küresele – Videolarınızı Basit, Tek Tıklamayla Ses Çevirisiyle Yükseltin",
+    "Konuşmacı Tanıma",
+    "Konuşmacıları Otomatik Olarak Tanımla",
+    "Akıllı algoritmalarımız, doğru dublaj ve kesintisiz bir izleme deneyimi sağlamak için konuşmacıları tanımlar",
+    "Yüksek Kalite Uygulaması",
+    "Mükemmel Sesler",
+    "AI tarafından üretilen tasarımlarımız görsel olarak çekici ve duyarlıdır. Düzenlemeden tipografiye kadar her şeyi kapsıyoruz",
+    "Bültenimize Kayıt Olun",
+    "Önde kalmaya hazır mısınız? Bültenimiz, önemli ürün sürümleri ve heyecan verici değişiklikler hakkında özel güncellemeler sunar",
+    "Zaten Abone Oldunuz",
+    "Bültenimize başarıyla abone oldunuz",
+    "Bir şeyler yanlış gitti",
+    "Lütfen tekrar deneyin",
+    "Bizimle İletişime Geçin",
+    "Herhangi bir sorunuz varsa, bize e-posta göndermekten çekinmeyin. Yardım etmekten her zaman mutlu olsak da, bunun ücretsiz bir ürün olduğunu ve yanıt sürelerini garanti edemeyeceğimizi unutmayın. Geri bildiriminizi de duymak isteriz!",
+    "Kaydolduğunuz İçin Teşekkürler!",
+    "Hazır olduğumuzda sizinle iletişime geçeceğiz.",
+    "Özelliklerimizi Keşfedin",
+    "Tam kimlik doğrulama, veri depolama, ödemeler, e-postalar ve daha fazlasından anında yararlanın"
+  ],
+  "formMessages": {
+    "name": "Ad",
+    "password" : "Şifre",
+    "email": "E-posta",
+    "signin" : "Giriş Yap",
+    "message": "Mesaj",
+    "submit": "Gönder",
+    "sending": "Gönderiliyor...",
+    "success": "Mesajınız başarıyla gönderildi",
+    "error": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin",
+    "phone": "Telefon",
+    "address": "Adres",
+    "city": "Şehir",
+    "country": "Ülke",
+    "zip": "Posta Kodu",
+    "state": "Eyalet",
+    "organization": "Organizasyon",
+    "subject": "Konu",
+    "contactForm" : {
+      "placeholder": "Mesajınızı buraya girin",
+      "success" : {
+        "title" : "Teşekkürler!",
+        "description" : "Mesajınız başarıyla gönderildi"
+      },
+      "error" : {
+        "title" : "Bir şeyler yanlış gitti",
+        "description" : "Lütfen tekrar deneyin"
+      }
+    },
+    "signinForm" : {
+      "messages" : [
+        "Şifre ile devam et"
+      ]
+    }
+  },
+  "pages" : {
+    "about" : {
+      "messages": [
+        "Neden",
+        "Çok dilli bir izleyici kitlesiyle erişim ve etkileşimini artırmak isteyen içerik oluşturucular. Hayranları ve takipçileriyle kendi ana dillerinde bağ kurmak ve etkileşimde bulunmak isteyen etkileyiciler.",
+        "Farklı geçmiş ve yeteneklere sahip öğrenciler için derslerini daha erişilebilir ve kapsayıcı hale getirmek isteyen eğitimciler.",
+        "21 Dil, 1 Çözüm:",
+        "Herhangi bir şeyi kolayca çevirin"
+      ]
+    },
+    "pricing" : {
+      "messages": [
+        "Planlarımız",
+        "ITRANSL8 ile dublaj teknolojisinde devrimi yaşayın. İçeriğinizi küresel standartlara yükselten yüksek verimli, maliyet etkin çözümler sunuyoruz. Sesinizin gücünü ITRANSL8 ile açığa çıkarın",
+        "En İyi Değer"
+      ]
+    },
+    "signup" : {
+      "messages": [
+        "Kaydol",
+        "ITRANSL8 ile başlamanız için kaydolun.",
+        "Zaten bir hesabınız var mı?",
+        "Şifrenizi mi unuttunuz?",
+        "Tekrar Gönder",
+        "E-posta doğrulama bağlantısını tekrar gönder",
+        "E-posta doğrulama bağlantısını mı kaybettiniz?",
+        "Hizmet Şartları",
+        "Gizlilik Politikası"
+      ]
+    },
+    "login" : {
+      "messages": [
+        "Giriş Yap",
+        "Tekrar hoş geldiniz! ITRANSL8 hesabınıza giriş yapın ve küresel başarı yolculuğunuza devam edin.",
+        "Şifre ile devam et",
+        "Hesabınız yok mu?",
+        "Kaydol",
+        "Şifrenizi mi unuttunuz?",
+        "Şimdi sıfırla"
+      ]
+    },
+    "verifyEmail" : {
+      "messages": [
+        "Geçersiz E-posta Doğrulama Jetonu",
+        "Lütfen kayıt sayfasına geri dönün ve tekrar deneyin",
+        "Tekrar deneyin",
+        "E-posta başarıyla doğrulandı",
+        "Artık hesabınıza giriş yapabilirsiniz",
+        "Giriş Sayfasına Git",
+        "Eksik E-posta Doğrulama Jetonu",
+        "Lütfen kayıt sayfasına geri dönün ve tekrar deneyin",
+        "Tekrar deneyin"
+      ]
+    }
+  },
+  "frequentlyAskedQuestions" : [
+    {
+      "question": "Itansl8 nedir?",
+      "answer": "Itansl8, herhangi bir dilde ve tarzda doğal AI sesleri oluşturma konusunda uzmanlaşmış bir platformdur. İster içerik oluşturucu, yazar, oyun geliştiricisi olun, ister sohbet botları oluşturun, ElevenLabs, ses deneyimlerinizi geliştirmeniz için gelişmiş AI teknolojisi ve sezgisel araçlar sunar. İşte bazı temel özellikler."
+    },
+    {
+      "question": "Neler dahil?",
+      "answer": "Itansl8, herhangi bir ses, stil ve dilde yüksek kaliteli konuşma sesi üretmenizi sağlar. AI modelimiz, bağlama göre teslimatı ayarlayarak insan tonlaması ve infleksiyonları benzersiz bir sadakatle işler. Videolar, oyunlar, AI sohbet botları ve sesli kitaplar için kullanabilirsiniz."
+    },
+    {
+      "question": "Neden Itansl8 kullanmak isteyeyim?",
+      "answer": "Herhangi bir dilde ve sesle doğal konuşma üretin. Ses netliğini, kararlılığı veya animasyonlu teslimatı özelleştirin. Dijital yaratıcılar için idealdir, yüksek kaliteli TTS akışını anında sağlar. Ses çıkışlarını sezgisel bir arayüz aracılığıyla kolayca ayarlayın. Metni çeşitli dillerde ve aksanlarda canlı sese dönüştürün."
+    },
+    {
+      "question": "Fiyatlandırma konusunda kafam karıştı",
+      "answer": "Ürünümüz tamamen ücretsizdir ve kullanım arttıkça fiyat artar. Fiyatlandırma bölümü başlamak için iyi bir yer olabilir. Geniş bir kullanıcı yelpazesi için bu ürünü daha iyi hale getirme planlarımız ve niyetlerimiz var."
+    },
+    {
+      "question": "Kullanımı kolay mı? Nasıl başlayabilirim?",
+      "answer": "Itansl8 kullanımı son derece kolaydır. Kaydolarak başlayabilirsiniz."
+    },
+    {
+      "question": "Ürün aktif olarak bakımda mı?",
+      "answer": "Evet! Platformumuzu heyecan verici yeni özellikler ekleyerek ve mevcut olanları geliştirerek sürekli olarak iyileştiriyoruz. Adanmış ekibimiz, kullanıcılarımıza en iyi deneyimi sunmaya kararlıdır. Düzenli güncellemeler için bizi takip edin! Büyük sürümlerden ilk haberdar olmak istiyorsanız, bültenimize abone olmayı düşünebilirsiniz. Merak etmeyin - size spam göndermeyeceğiz, söz veriyoruz!"
+    }
+  ]
 }

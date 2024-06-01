@@ -5,10 +5,12 @@ import Image from "next/image"
 import { type Feature } from "@/types"
 import Balancer from "react-wrap-balancer"
 
-import { features } from "@/data/features"
-import { cn } from "@/lib/utils"
 
-export function FeaturesSection() {
+import { cn } from "@/lib/utils"
+import { SiteConfig } from "@/config/site"
+
+const FeaturesSection = ({ siteConfig } : {siteConfig :  SiteConfig }) => {
+  const features = siteConfig.features
   const [activeFeature, setActiveFeature] = React.useState<Feature | null>(
     features?.[0] || null
   )
@@ -23,15 +25,15 @@ export function FeaturesSection() {
         <div className="flex w-full flex-col items-center gap-6 text-center">
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
-              Empower Dubbing with <br />
+
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                ITRANSL8
+                {siteConfig.messages[20]}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              Effortlessly translate videos into new languages with the power of artificial intelligence.
+              {siteConfig.messages[21]}
             </Balancer>
           </h3>
         </div>
@@ -53,7 +55,7 @@ export function FeaturesSection() {
                     <h3 className="text-base font-semibold sm:text-xl md:text-sm lg:text-xl">
                       {feature.title}
                     </h3>
-                    <p className="mt-2 hidden text-xs text-muted-foreground sm:text-lg sm:leading-6 xl:block">
+                    <p className="mt-2 hidden text-sm text-muted-foreground sm:text-lg sm:leading-6 xl:block">
                       <Balancer>{feature.description}</Balancer>
                     </p>
                   </button>
@@ -77,3 +79,5 @@ export function FeaturesSection() {
     </section>
   )
 }
+
+export default FeaturesSection

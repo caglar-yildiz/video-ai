@@ -19,8 +19,13 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons/icons"
+import { FormMessages } from "@/config/site"
 
-export function ContactForm(): JSX.Element {
+type ContactFormProps = {
+  formMessages : FormMessages
+}
+
+export function ContactForm({formMessages } : ContactFormProps): JSX.Element {
   const { toast } = useToast()
   const [isPending, startTransition] = React.useTransition()
 
@@ -40,20 +45,20 @@ export function ContactForm(): JSX.Element {
 
         if (message === "success") {
           toast({
-            title: "Thank you!",
-            description: "Your message has been sent",
+            title: formMessages.contactForm.success.title,
+            description: formMessages.contactForm.success.description,
           })
           form.reset()
         } else {
           toast({
-            title: "Something went wrong",
-            description: "Please try again",
+            title: formMessages.contactForm.error.title,
+            description: formMessages.contactForm.error.description,
             variant: "destructive",
           })
         }
       } catch (error) {
         toast({
-          description: "Something went wrong. Please try again",
+          description: formMessages.contactForm.error.description,
           variant: "destructive",
         })
       }
@@ -72,7 +77,7 @@ export function ContactForm(): JSX.Element {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel>
+                <FormLabel>{formMessages.name}</FormLabel>
 
                 <FormControl className="h-12">
                   <Input type="text" placeholder="John" {...field} />
@@ -87,7 +92,7 @@ export function ContactForm(): JSX.Element {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>{formMessages.email}</FormLabel>
                 <FormControl className="h-12">
                   <Input type="email" placeholder="john@smith.com" {...field} />
                 </FormControl>
@@ -102,11 +107,11 @@ export function ContactForm(): JSX.Element {
           name="message"
           render={({ field }) => (
             <FormItem className="">
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{formMessages.message}</FormLabel>
               <FormControl className="min-h-[180px] md:min-h-[240px]">
                 <Textarea
                   {...field}
-                  placeholder="Hi, I am looking to..."
+                  placeholder={formMessages.contactForm.placeholder}
                   className="text-base"
                 />
               </FormControl>
@@ -125,8 +130,8 @@ export function ContactForm(): JSX.Element {
               aria-hidden="true"
             />
           )}
-          {isPending ? "Sending..." : "Send"}
-          <span className="sr-only">Submit contact form</span>
+          {isPending ? formMessages.sending : formMessages.submit}
+          <span className="sr-only">{formMessages.submit}</span>
         </Button>
       </form>
     </Form>

@@ -1,3 +1,4 @@
+import { ComponentWithLocaleType } from "@/types"
 import Balancer from "react-wrap-balancer"
 
 import { getSiteConfig } from "@/config/site"
@@ -8,9 +9,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { ComponentWithLocaleType } from "@/types"
 
-export const BenefitsSection : ComponentWithLocaleType = async ({locale}) =>   {
+export const BenefitsSection: ComponentWithLocaleType = async ({ locale }) => {
   const siteConfig = await getSiteConfig(locale)
   return (
     <section id="about-section" aria-label="about section" className="w-full">
@@ -19,44 +19,37 @@ export const BenefitsSection : ComponentWithLocaleType = async ({locale}) =>   {
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
               <span className="relative bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text font-extrabold text-transparent">
-                Unlock Global Audiences with ITRANSL8's Easy Video Translation
+                {siteConfig.messages[2]}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[42rem] text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              From Local to Global – Elevate Your Videos with Simple, One-Click Voice Translation.
-              <span className="font-semibold text-foreground">
-                {siteConfig.name}
-              </span>
-              .
+              {siteConfig.messages[3]}
             </Balancer>
           </h3>
         </div>
 
         <div className="grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
           <div className="space-y-4 md:mt-20 md:space-y-6">
-            <Card
+            {/*<Card
               id="1"
               className="h-fit bg-gradient-to-br from-blue-600/10 to-purple-600/10 transition-all duration-1000 ease-out md:hover:-translate-y-3"
             >
               <CardHeader>
                 <CardDescription className="py-2 text-base font-medium tracking-wide text-muted-foreground">
-                  Instant Dubbing
+                  {siteConfig.messages[4]}
                 </CardDescription>
                 <CardTitle className="font-urbanist text-3xl font-black tracking-wide">
                   <Balancer>
-                    Automated Dubbing <br className="hidden md:inline-block" />
-                    and Voice-Over
+                    {siteConfig.messages[5]}
                   </Balancer>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
                 <p className="text-base leading-8 tracking-wide text-muted-foreground">
                   <Balancer>
-                    Say goodbye to manual dubbing! Our AI seamlessly adds
-                    voice-overs and dubs your videos across languages. Imagine
-                    the time saved and the global reach you'll achieve.
+                    {siteConfig.messages[6]}
                   </Balancer>
                 </p>
                 <div>
@@ -86,7 +79,7 @@ export const BenefitsSection : ComponentWithLocaleType = async ({locale}) =>   {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </Card>*/}
 
             <Card
               id="2"
@@ -94,17 +87,16 @@ export const BenefitsSection : ComponentWithLocaleType = async ({locale}) =>   {
             >
               <CardHeader>
                 <CardDescription className="py-2 text-base font-medium tracking-wide text-muted-foreground">
-                  Speaker Detection
+                  {siteConfig.messages[4]}
                 </CardDescription>
                 <CardTitle className="font-urbanist text-3xl font-black tracking-wide">
-                  <Balancer>Automatically Identify Speakers</Balancer>
+                  <Balancer>{siteConfig.messages[5]}</Balancer>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6 p-0">
                 <p className="px-4 text-base leading-8 tracking-wide text-muted-foreground">
                   <Balancer>
-                    Our smart algorithms identify speakers, ensuring accurate
-                    dubbing and a seamless viewing experience.
+                    {siteConfig.messages[6]}
                   </Balancer>
                 </p>
                 <video
@@ -134,18 +126,16 @@ export const BenefitsSection : ComponentWithLocaleType = async ({locale}) =>   {
             >
               <CardHeader>
                 <CardDescription className="py-2 text-base font-medium tracking-wide text-muted-foreground">
-                  High Quality Implementation
+                  {siteConfig.messages[7]}
                 </CardDescription>
                 <CardTitle className="font-urbanist text-3xl font-black tracking-wide">
-                  <Balancer>Visually Stunning</Balancer>
+                  <Balancer>{siteConfig.messages[8]}</Balancer>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6 p-0">
                 <p className="px-4 text-base leading-8 tracking-wide text-muted-foreground">
                   <Balancer>
-                    Our AI-generated designs are visually appealing and
-                    responsive. From layout to typography, we've got you
-                    covered.
+                    {siteConfig.messages[9]}
                   </Balancer>
                 </p>
                 <video
@@ -167,7 +157,7 @@ export const BenefitsSection : ComponentWithLocaleType = async ({locale}) =>   {
               </CardContent>
             </Card>
 
-            <Card
+            {/*<Card
               id="4"
               className="h-fit w-full bg-gradient-to-br from-blue-600/10 to-purple-600/10 transition-all duration-1000 ease-out md:hover:-translate-y-3"
             >
@@ -203,7 +193,7 @@ export const BenefitsSection : ComponentWithLocaleType = async ({locale}) =>   {
                   Your browser does not support the video tag.
                 </video>
               </CardContent>
-            </Card>
+            </Card>*/}
           </div>
         </div>
       </div>

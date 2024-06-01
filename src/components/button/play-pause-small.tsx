@@ -12,16 +12,16 @@ export type PlayPauseProp = {
 }
 
 function PlayPause({
-                     isPlaying,
-                     handleAudio,
-                     className,
-                   }: Readonly<PlayPauseProp>) {
+  isPlaying,
+  handleAudio,
+  className,
+}: Readonly<PlayPauseProp>) {
   return (
     <Button variant={"link"} onClick={handleAudio}>
       {isPlaying ? (
-        <CirclePause color="white"  className={className} />
+        <CirclePause color="white" className={className} />
       ) : (
-        <CirclePlay color="white"  className={className} />
+        <CirclePlay color="white" className={className} />
       )}
     </Button>
   )

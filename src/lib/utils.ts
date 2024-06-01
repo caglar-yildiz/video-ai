@@ -1,7 +1,9 @@
 import { env } from "@/env.mjs"
-import { clsx, type ClassValue } from "clsx"
+import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 import * as z from "zod"
+import { getCookie } from "cookies-next"
+import { getToken } from "@auth/core/jwt"
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -39,4 +41,17 @@ export function checkFileType(file: File | undefined) {
     }
   }
   return false
+}
+
+export const customFetch = async (input: RequestInfo, init?: RequestInit): Promise<Response> => {
+  // Set your custom headers here
+  const authToken = getCookie('X-AUTH-TOKEN')?.toString()
+  const headers :[string, string][] | Record<string, string> | Headers | undefined = {
+    ...init?.headers,
+    'X-AUTH-TOKEN': authToken ? authToken :  "",
+  };
+
+
+  // Make the fetch request with the updated headers
+  return fetch(input, { ...init, headers });
 }
