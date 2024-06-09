@@ -18,19 +18,19 @@ export const NewsletterSection: ComponentWithLocaleType = async ({ locale }) => 
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {siteConfig.messages[10]}
+                {siteConfig.pages.landingPage.messages.signUpToOurNewsletter}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[42rem] text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              {siteConfig.messages[11]}
+              {siteConfig.pages.landingPage.messages.stayAheadOfTheCurve}
             </Balancer>
           </h3>
         </div>
 
         <div className="w-full max-w-lg md:max-w-xl">
-          <NewsletterSignUpForm messages={[siteConfig.messages[12],siteConfig.messages[13],siteConfig.messages[14],siteConfig.messages[15]]} />
+          <NewsletterSignUpForm messages={siteConfig.formMessages.newsletter.messages} />
         </div>
       </div>
     </section>

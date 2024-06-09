@@ -22,12 +22,10 @@ import {
 import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons/icons"
+import { NewsLetterMessages } from "@/config/site"
 
-export type NewsletterSignUpFormProps = {
-  messages : string[]
-}
 
-export const NewsletterSignUpForm = ({ messages } : NewsletterSignUpFormProps) => {
+export const NewsletterSignUpForm = ({ messages } : NewsLetterMessages) => {
   const { toast } = useToast()
   const [isPending, startTransition] = React.useTransition()
 
@@ -46,7 +44,7 @@ export const NewsletterSignUpForm = ({ messages } : NewsletterSignUpFormProps) =
         switch (message) {
           case "exists":
             toast({
-              title: messages[0],
+              title: messages.youAreSubscribedAlready,
               variant: "destructive",
             })
             form.reset()
@@ -54,21 +52,21 @@ export const NewsletterSignUpForm = ({ messages } : NewsletterSignUpFormProps) =
           case "success":
             toast({
               title: "Thank you!",
-              description: messages[1],
+              description: messages.youHaveSuccessfullySubscribed,
             })
             form.reset()
             break
           default:
             toast({
-              title: messages[3],
-              description: messages[4],
+              title: messages.somethingWentWrong,
+              description: messages.pleaseTryAgain,
               variant: "destructive",
             })
         }
       } catch (error) {
         toast({
-          title: messages[3],
-          description: messages[4],
+          title: messages.somethingWentWrong,
+          description: messages.pleaseTryAgain,
           variant: "destructive",
         })
       }

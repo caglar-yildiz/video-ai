@@ -25,13 +25,13 @@ export const HeroSection: ComponentWithLocaleType = async ({ locale }) => {
             <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text font-extrabold text-transparent">
               {siteConfig.name}: {" "}
             </span>
-            {siteConfig.messages["0"]}
+            {siteConfig.pages.landingPage.messages.bridgingLanguageBarriers}
           </Balancer>
         </h1>
 
         <h3 className="max-w-[42rem] animate-fade-up text-muted-foreground sm:text-xl sm:leading-8">
           <Balancer>
-            {siteConfig.messages["1"]}
+            {siteConfig.pages.landingPage.messages.connectWithGlobalAudience}
           </Balancer>
         </h3>
         {!session && (

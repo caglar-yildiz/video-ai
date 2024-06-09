@@ -27,7 +27,7 @@ export const Footer: ComponentWithLocaleType = async ({ locale }) => {
                 {item.items.map((link) => (
                   <li key={link.title}>
                     <LinkWrapper
-                      locale={"en"}
+                      locale={locale}
                       href={link.href}
                       target={link?.external ? "_blank" : undefined}
                       rel={link?.external ? "noreferrer" : undefined}
@@ -48,7 +48,7 @@ export const Footer: ComponentWithLocaleType = async ({ locale }) => {
             <Balancer>Ready to stay informed? Subscribe now! 🚀</Balancer>
           </p>
 
-          <NewsletterSignUpForm messages={[siteConfig.messages[12],siteConfig.messages[13],siteConfig.messages[14],siteConfig.messages[15]]} />
+          <NewsletterSignUpForm messages={siteConfig.formMessages.newsletter.messages} />
         </div>
       </div>
     </footer>

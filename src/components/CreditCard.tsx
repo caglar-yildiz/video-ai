@@ -19,15 +19,17 @@ import React from "react"
 import { handleProductPurchase } from "@/actions/payment"
 import { useToast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons/icons"
+import { FormMessages } from "@/config/site"
 
 
 interface CreditCardProps {
   productId : string;
   userId : string;
   price : number;
+  formMessages : FormMessages
 }
 
-export default function CreditCard({ productId, userId, price }: CreditCardProps) {
+export default function CreditCard({ productId, userId, price, formMessages }: CreditCardProps) {
 
   const { toast } = useToast()
   const [isPending, startTransition] = React.useTransition()
@@ -54,21 +56,21 @@ export default function CreditCard({ productId, userId, price }: CreditCardProps
         )
         if (result) {
           toast({
-            title: "Payment",
-            description: "Payment Successfully Made",
+            title: formMessages.creditCard.messages.payment,
+            description: formMessages.creditCard.messages.paymentSuccessfullyMade,
           })
         }else {
           toast({
-            title: "Payment",
-            description: "Payment Failed",
+            title: formMessages.creditCard.messages.payment,
+            description: formMessages.creditCard.messages.paymentFailed,
             variant: "destructive",
           })
         }
 
       } catch (e) {
         toast({
-          title: "Something went wrong",
-          description: "Please try again",
+          title: formMessages.creditCard.messages.somethingWentWrong,
+          description: formMessages.creditCard.messages.pleaseTryAgain,
           variant: "destructive",
         })
       }
@@ -90,7 +92,7 @@ export default function CreditCard({ productId, userId, price }: CreditCardProps
               render={({ field }) => (
                 <FormItem className="flex-1">
                   <FormLabel className="pl-1 text-slate-800">
-                    Card number:
+                    {formMessages.creditCard.messages.cardNumber}:
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="1234 1234 1234 1234" {...field} />
@@ -106,7 +108,7 @@ export default function CreditCard({ productId, userId, price }: CreditCardProps
                 render={({ field }) => (
                   <FormItem className="flex-1">
                     <FormLabel className="pl-1 text-slate-800">
-                      Exp. date:
+                      {formMessages.creditCard.messages.expDate}:
                     </FormLabel>
                     <FormControl>
                       <Input placeholder="12/24" onChangeCapture={(e)=>{
@@ -127,7 +129,7 @@ export default function CreditCard({ productId, userId, price }: CreditCardProps
                 name="CCV"
                 render={({ field }) => (
                   <FormItem className="flex-1">
-                    <FormLabel className="pl-1 text-slate-800">CCV:</FormLabel>
+                    <FormLabel className="pl-1 text-slate-800">CVC:</FormLabel>
                     <FormControl>
                       <Input placeholder="966" {...field} />
                     </FormControl>
@@ -142,7 +144,7 @@ export default function CreditCard({ productId, userId, price }: CreditCardProps
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="pl-1 text-slate-800">
-                    Card holder:
+                    {formMessages.creditCard.messages.cardHolder}:
                   </FormLabel>
                   <FormControl>
                     <Input placeholder="John Doe" {...field} />
@@ -155,7 +157,7 @@ export default function CreditCard({ productId, userId, price }: CreditCardProps
               {isPending ? (
                 <Icons.spinner className="size-2 animate-spin" aria-hidden="true" />
               ) : (
-                "Purchase"
+                formMessages.creditCard.messages.purchase
               )}
             </Button>
           </div>

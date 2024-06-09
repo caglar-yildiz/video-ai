@@ -8,8 +8,16 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import type { FrequentlyAskedQuestion } from "@/types"
+import { FrequentlyAskedQuestions } from "@/config/site"
 
-export async function FAQSection({frequentlyAskedQuestions} : { frequentlyAskedQuestions : FrequentlyAskedQuestion[] }) {
+export async function FAQSection(
+  {
+    frequentlyAskedQuestions,
+    faqPageMessages
+  } : {
+    frequentlyAskedQuestions : FrequentlyAskedQuestion[]
+    faqPageMessages : FrequentlyAskedQuestions
+  }) {
 
   return (
     <section id="faq-section" aria-label="faq section" className="w-full">
@@ -18,14 +26,13 @@ export async function FAQSection({frequentlyAskedQuestions} : { frequentlyAskedQ
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Frequently Asked Questions
+                {faqPageMessages.title}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              Look no further! Our comprehensive FAQ section covers a wide range
-              of topics related to our product. We're here to assist you!
+              {faqPageMessages.description}
             </Balancer>
           </h3>
         </div>

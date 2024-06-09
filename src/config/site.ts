@@ -7,7 +7,6 @@ import { type NavItem, type NavItemFooter } from "@/types"
 import DubbingIcon from "@/components/icons/dubbing"
 import PeopleIcon from "@/components/icons/people"
 import DashboardIcon from "@/components/icons/projects"
-import { CoinsIcon } from "lucide-react"
 
 export const getSiteConfig = async (lang: Lang) => {
 
@@ -20,18 +19,18 @@ export const getSiteConfig = async (lang: Lang) => {
     navItemsMobile: [],
     navItemsFooter: [
       {
-        title: "Company",
+        title: dictionary?.siteConfig.footerItems.company.title,
         items: [
           {
-            title: "About",
+            title: dictionary?.siteConfig.footerItems.company.about,
             href: "/about",
             external: false,
           },
-          // {
-          //   title: "Privacy",
-          //   href: "/privacy",
-          //   external: false,
-          // },
+           {
+             title: dictionary?.siteConfig.footerItems.support.privacy,
+             href: "/privacy",
+             external: false,
+           },
           // {
           //   title: "Terms",
           //   href: "/tos",
@@ -45,21 +44,11 @@ export const getSiteConfig = async (lang: Lang) => {
         ],
       },
       {
-        title: "Support",
+        title: dictionary?.siteConfig.footerItems.support.title,
         items: [
           {
-            title: "FAQ",
+            title: dictionary?.siteConfig.footerItems.support.faq,
             href: "/faq",
-            external: false,
-          },
-          {
-            title: "API Reference",
-            href: "/api",
-            external: false,
-          },
-          {
-            title: "Guides",
-            href: "/guides",
             external: false,
           },
         ],
@@ -67,74 +56,42 @@ export const getSiteConfig = async (lang: Lang) => {
     ] satisfies NavItemFooter[],
     side_nav_items: [
       {
-        title: "Dashboard",
+        title: dictionary?.sideNavItems.dashboard,
         href: "/dashboard",
         icon: React.createElement(DashboardIcon),
       },
 
       {
-        title: "Create Dubbing",
+        title: dictionary?.sideNavItems.createDubbing,
         href: "/dashboard/dubbing",
         icon: React.createElement(DubbingIcon),
       },
       {
-        title: "Dubbing2",
+        title: dictionary?.sideNavItems.dubbing2,
         href: "/dashboard/dubbing2",
         icon: React.createElement(DubbingIcon),
       },
       {
-        title: "My Dubbings",
+        title: dictionary?.sideNavItems.myDubbings,
         href: "/dashboard/mydubbings",
         icon: React.createElement(DubbingIcon),
       },
       {
-        title: "Speech (Upcoming)",
+        title: dictionary?.sideNavItems.speech,
         href: "/dashboard/speech",
         icon: React.createElement(PeopleIcon),
         disabled: (() => {
           return process.env.NODE_ENV === "production"
         })(),
       },
-      {
-        title: "Credits",
-        href: "/dashboard/credit",
-        icon: React.createElement(CoinsIcon),
-        disabled: (() => {
-          return process.env.NODE_ENV === "production"
-        })(),
-      },
     ] satisfies NavItem[],
     buttons: dictionary?.siteConfig.buttons,
+    profile: dictionary?.profile,
     features :  dictionary?.features.map((feature,index) => {
       return {...feature, image: `/images/features/${index + 1}.jpg`}
     }),
-    messages :{
-      0 : dictionary?.messages[0] + "",
-      1 : dictionary?.messages[1] + "",
-      2 : dictionary?.messages[2] + "",
-      3 : dictionary?.messages[3] + "",
-      4 : dictionary?.messages[4] + "",
-      5 : dictionary?.messages[5] + "",
-      6 : dictionary?.messages[6] + "",
-      7 : dictionary?.messages[7] + "",
-      8 : dictionary?.messages[8] + "",
-      9 : dictionary?.messages[9] + "",
-      10 : dictionary?.messages[10] + "",
-      11 : dictionary?.messages[11] + "",
-      12 : dictionary?.messages[12] + "",
-      13 : dictionary?.messages[13] + "",
-      14 : dictionary?.messages[14] + "",
-      15 : dictionary?.messages[15] + "",
-      16 : dictionary?.messages[16] + "",
-      17 : dictionary?.messages[17] + "",
-      18 : dictionary?.messages[18] + "",
-      19 : dictionary?.messages[19] + "",
-      20 : dictionary?.messages[20] + "",
-      21 : dictionary?.messages[21] + "",
-    },
     formMessages: dictionary?.formMessages,
     pages : dictionary?.pages,
-    frequentlyAskedQuestions: dictionary?.frequentlyAskedQuestions,
   }
 }
 
@@ -147,3 +104,10 @@ export type FormMessages = ThenArg<ReturnType<typeof getSiteConfig>>['formMessag
 export type SiteMessages = ThenArg<ReturnType<typeof getSiteConfig>>['pages']['pricing']['messages'];
 
 export type ButtonContents = ThenArg<ReturnType<typeof getSiteConfig>>['buttons'];
+
+export type FrequentlyAskedQuestions = ThenArg<ReturnType<typeof getSiteConfig>>["pages"]["faqPage"]
+
+export type NewsLetterMessages = ThenArg<ReturnType<typeof getSiteConfig>>["formMessages"]["newsletter"]
+
+export type FeaturesSection = ThenArg<ReturnType<typeof getSiteConfig>>["pages"]
+

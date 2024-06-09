@@ -38,7 +38,7 @@ export const Header: ComponentWithLocaleType = async ({ locale }) => {
                 href="/dashboard"
                 className={cn(buttonVariants({ size: "sm" }), "ml-3")}
               >
-                Go to Dashboard
+                {siteConfig.buttons.gotoDashboard}
                 <span className="sr-only">Go to Dashboard</span>
               </LinkWrapper>
             ) : (
@@ -49,7 +49,7 @@ export const Header: ComponentWithLocaleType = async ({ locale }) => {
                   href="/signup"
                   className={cn(buttonVariants({ size: "sm" }), "ml-2")}
                 >
-                  Sign Up
+                  {siteConfig.buttons.signUp}
                   <span className="sr-only">Sign Up</span>
                 </LinkWrapper>
                 <LinkWrapper
@@ -61,7 +61,7 @@ export const Header: ComponentWithLocaleType = async ({ locale }) => {
                     "ml-2"
                   )}
                 >
-                  Sign In
+                  {siteConfig.buttons.login}
                   <span className="sr-only">Sign In</span>
                 </LinkWrapper>
               </div>

@@ -7,6 +7,7 @@ import { prisma } from "@/db"
 import BillingInfoPage from "@/components/app/protected/forms/billing"
 import { LangPageProps } from "@/types"
 import OrganizationPage from "@/components/app/protected/organizaion"
+import { getSiteConfig } from "@/config/site"
 
 const Account = async ({ params: { lang } }: LangPageProps) => {
 
@@ -31,6 +32,9 @@ const Account = async ({ params: { lang } }: LangPageProps) => {
     })
   }
 
+  const  siteConfig = await getSiteConfig(lang)
+
+
 
   return (
     <div className="flex flex-col">
@@ -49,18 +53,18 @@ const Account = async ({ params: { lang } }: LangPageProps) => {
 
         <Tabs className="w-full" defaultValue="profile">
           <TabsList className="mb-4 flex w-full border-b">
-            <TabsTrigger value="profile">Profile</TabsTrigger>
-            <TabsTrigger value="billing">Billing Information</TabsTrigger>
-            <TabsTrigger value="organization">Organization</TabsTrigger>
+            <TabsTrigger value="profile">{siteConfig.pages.account.messages.profile}</TabsTrigger>
+            <TabsTrigger value="billing">{siteConfig.pages.account.messages.billingInformation}</TabsTrigger>
+            <TabsTrigger value="organization">{siteConfig.pages.account.messages.organization}</TabsTrigger>
           </TabsList>
           <TabsContent className="grid gap-6" value="profile">
-            {user && <UserProfile user={user} />}
+            {user && <UserProfile formMessages={siteConfig.formMessages} user={user} />}
           </TabsContent>
           <TabsContent value="organization">
-           <OrganizationPage organization={organization} isAdmin={user?.role === "ADMIN"}/>
+           <OrganizationPage formMessages={siteConfig.formMessages} organization={organization} isAdmin={user?.role === "ADMIN"}/>
           </TabsContent>
           <TabsContent className="grid gap-6" value="billing">
-            <BillingInfoPage billingInfo={billingInfo} />
+            <BillingInfoPage formMessages={siteConfig.formMessages} billingInfo={billingInfo} />
           </TabsContent>
         </Tabs>
       </div>

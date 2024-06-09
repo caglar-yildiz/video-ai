@@ -27,13 +27,13 @@ const FeaturesSection = ({ siteConfig } : {siteConfig :  SiteConfig }) => {
             <Balancer>
 
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {siteConfig.messages[20]}
+                {siteConfig.pages.landingPage.messages.discoverOurFeatures}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              {siteConfig.messages[21]}
+              {siteConfig.pages.landingPage.messages.takeAdvantage}
             </Balancer>
           </h3>
         </div>

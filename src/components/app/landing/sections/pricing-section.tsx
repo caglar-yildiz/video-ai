@@ -35,13 +35,13 @@ export function PricingSection({
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {messages[0]}
+                {messages.ourPlans}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[42rem] text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              {messages[1]}
+              {messages.experience}
             </Balancer>
           </h3>
         </div>

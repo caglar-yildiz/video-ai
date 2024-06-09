@@ -43,13 +43,13 @@ export default async function SignInPage({ params, searchParams }: {
       <Card className="max-sm:flex  max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-2xl">{siteConfig.pages.login.messages[0]}</CardTitle>
+            <CardTitle className="text-2xl">{siteConfig.pages.login.messages.signIn}</CardTitle>
             <Link href="/">
               <Icons.close className="h-4 w-4" />
             </Link>
           </div>
           <CardDescription>
-            {siteConfig.pages.login.messages[1]}
+            {siteConfig.pages.login.messages.welcomeBack}
           </CardDescription>
         </CardHeader>
         <CardContent className="max-sm:w-full max-sm:max-w-[340px] max-sm:px-10">
@@ -60,7 +60,7 @@ export default async function SignInPage({ params, searchParams }: {
             </div>
             <div className="relative mb-3 mt-6 flex justify-center text-xs uppercase">
               <span className="bg-background px-2">
-                {siteConfig.pages.login.messages[2]}
+                {siteConfig.pages.login.messages.continueWithPassword}
               </span>
             </div>
           </div>
@@ -69,26 +69,26 @@ export default async function SignInPage({ params, searchParams }: {
 
         <CardFooter className="grid w-full text-sm text-muted-foreground max-sm:max-w-[340px] max-sm:px-10">
           <div>
-            <span>{siteConfig.pages.login.messages[3]}</span>
+            <span>{siteConfig.pages.login.messages.noAccount}</span>
             <Link
               aria-label="Sign up"
               href="/signup"
               className="font-bold tracking-wide text-primary underline-offset-4 transition-colors hover:underline"
             >
-              {siteConfig.pages.login.messages[4]}
-              <span className="sr-only">{siteConfig.pages.login.messages[0]}</span>
+              {siteConfig.pages.login.messages.signUp}
+              <span className="sr-only">{siteConfig.pages.login.messages.signIn}</span>
             </Link>
             .
           </div>
           <div>
-            <span>{siteConfig.pages.login.messages[5]}</span>
+            <span>{siteConfig.pages.login.messages.forgotPassword}</span>
             <Link
               aria-label="Reset password"
               href="/signin/password-reset"
               className="text-sm font-normal text-primary underline-offset-4 transition-colors hover:underline"
             >
-              {siteConfig.pages.login.messages[6]}
-              <span className="sr-only">{siteConfig.pages.login.messages[6]}</span>
+              {siteConfig.pages.login.messages.resetNow}
+              <span className="sr-only">{siteConfig.pages.login.messages.resetNow}</span>
             </Link>
             .
           </div>

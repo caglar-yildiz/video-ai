@@ -21,10 +21,12 @@ import { AlertCircle } from "lucide-react"
 import { Icons } from "@/components/icons/icons"
 import { DeleteOrganizationResponse } from "@/app/api/organization/route"
 import { useToast } from "@/components/ui/use-toast"
+import { FormMessages } from "@/config/site"
 
-const OrganizationPage = ({ organization, isAdmin }: {
+const OrganizationPage = ({ organization, isAdmin , formMessages }: {
   organization: Organization | undefined | null;
   isAdmin: boolean
+  formMessages: FormMessages
 }) => {
   const [showCreateOrganization, setShowCreateOrganization] = useState(false)
   const [isPending, startTransition] = React.useTransition()
@@ -47,14 +49,14 @@ const OrganizationPage = ({ organization, isAdmin }: {
         if (result.ok) {
           const data : DeleteOrganizationResponse = await result.json()
           toast({
-            title: "Organization",
+            title: formMessages.organizationPage.messages.organization,
             description: data.message,
           })
            window.location.reload()
         }else {
           const data : DeleteOrganizationResponse = await result.json()
           toast({
-            title: "Organization",
+            title: formMessages.organizationPage.messages.organization,
             description: data.error,
             variant: "destructive",
           })
@@ -76,14 +78,14 @@ const OrganizationPage = ({ organization, isAdmin }: {
           <CardContent>
             <div className="grid gap-4">
               <div className="flex items-center justify-between">
-                <p>Members</p>
+                <p>{formMessages.organizationPage.messages.members}</p>
                 <AddUserButton />
               </div>
               {isAdmin && <OrganizationUserList />}
             </div>
           </CardContent>
           <CardFooter>
-            <Button variant="outline" onClick={() => setShowCreateOrganization(true)}>Manage Organization</Button>
+            <Button variant="outline" onClick={() => setShowCreateOrganization(true)}>{formMessages.organizationPage.messages.manageOrganization}</Button>
           </CardFooter>
         </Card>
       )}
@@ -92,34 +94,34 @@ const OrganizationPage = ({ organization, isAdmin }: {
           <>
             <Card>
               <CardHeader>
-                <CardTitle>Join or Create an Organization</CardTitle>
+                <CardTitle>{formMessages.organizationPage.messages.joinOrCreateOrganization}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p>
-                  You don't currently belong to any organizations. Join an existing organization or create a new one.
+                  {formMessages.organizationPage.messages.joinOrganization}
                 </p>
               </CardContent>
               <CardFooter>
                 <AlertDialog>
                   <AlertDialogTrigger asChild>
-                    <Button>Join an Organization</Button>
+                    <Button>{formMessages.organizationPage.messages.joinOrganization}</Button>
                   </AlertDialogTrigger>
                   <AlertDialogContent>
                     <AlertDialogHeader>
                       <AlertDialogTitle>
-                        You cannot join to an organization without an invitation
+                        {formMessages.organizationPage.messages.cannotJoinWithoutInvitation}
                       </AlertDialogTitle>
                       <AlertDialogDescription>
-                        Ask organization to send an invitation from organization tab in Account page
+                        {formMessages.organizationPage.messages.askForInvitation}
                       </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogCancel>{formMessages.organizationPage.messages.cancel}</AlertDialogCancel>
                     </AlertDialogFooter>
                   </AlertDialogContent>
                 </AlertDialog>
                 <Button className="ml-auto" onClick={() => setShowCreateOrganization(true)}>
-                  Create an organization
+                  {formMessages.organizationPage.messages.createOrganization}
                 </Button>
               </CardFooter>
             </Card>
@@ -131,16 +133,16 @@ const OrganizationPage = ({ organization, isAdmin }: {
         {showCreateOrganization && organization && (
           <Alert className={"mt-6 flex justify-between items-center"} variant="destructive">
             <div><AlertCircle className="h-4 w-4" />
-              <AlertTitle>Caution</AlertTitle>
+              <AlertTitle>{formMessages.organizationPage.messages.caution}</AlertTitle>
               <AlertDescription>
-                By selecting Delete, you will delete the organization. Users in organization as well as the credits will be lost. This action cannot be undone.
+                {formMessages.organizationPage.messages.deleteCaution}
               </AlertDescription>
             </div>
             <Button disabled={isPending} variant="outline" className="ml-4 justify-end" onClick={handleOrganizationDelete}>
               {isPending ? (
                 <Icons.spinner className="size-2 animate-spin" aria-hidden="true" />
               ) : (
-                "Delete"
+                formMessages.organizationPage.messages.delete
               )}
             </Button>
           </Alert>

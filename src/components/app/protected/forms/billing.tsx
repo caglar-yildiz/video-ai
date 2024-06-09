@@ -15,8 +15,13 @@ import { Icons } from "@/components/icons/icons"
 import { allCountries } from "country-telephone-data"
 import { PhoneInput } from "react-international-phone"
 import "react-international-phone/style.css"
+import { FormMessages } from "@/config/site"
 
-const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined | null }) => {
+const BillingInfoPage = ({ billingInfo, formMessages }:
+                           {
+                             billingInfo: BillingInfo | undefined | null ,
+                              formMessages: FormMessages
+                           }) => {
   const { toast } = useToast()
   const [isPending, startTransition] = React.useTransition()
   const [editable, setEditable] = useState<boolean>(false)
@@ -57,16 +62,16 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
         const result = await updateBillingInfo(data)
         if (result) {
           toast({
-            title: "Billing information updated",
-            description: "Your billing information has been updated",
+            title: formMessages.billingInfoPage.messages.billingInformationUpdated,
+            description: formMessages.billingInfoPage.messages.yourBillingInformationHasBeenUpdated,
           })
           setEditable(false)
         }
 
       } catch (e) {
         toast({
-          title: "Something went wrong",
-          description: "Please try again",
+          title: formMessages.billingInfoPage.messages.somethingWentWrong,
+          description: formMessages.billingInfoPage.messages.pleaseTryAgain,
           variant: "destructive",
         })
       }
@@ -76,13 +81,13 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
   return (
     <div className={"text-xs gap-3"}>
       {!billingInfo &&
-        <p className={"pb-4"}>You have not completed billing information. Please enter complete below</p>}
+        <p className={"pb-4"}>{}</p>}
       <div className={"flex justify-end"}>
-        {!editable && <Button className="ml-auto" onClick={() => setEditable(true)}>Edit</Button>}
+        {!editable && <Button className="ml-auto" onClick={() => setEditable(true)}>{formMessages.billingInfoPage.messages.edit}</Button>}
       </div>
       <form onSubmit={handleSubmit((data) => onSubmit(data))}>
         <div className="grid gap-1">
-          <Label htmlFor="title">Title</Label>
+          <Label htmlFor="title">{formMessages.billingInfoPage.messages.title}</Label>
 
           <Input defaultValue={billingInfo?.title || ""} {...register("title")} disabled={!editable} id="title" />
           {errors.title && (
@@ -92,7 +97,7 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
           )}
         </div>
         <div className="grid gap-1">
-          <Label htmlFor="phoneNumber">Phone Number</Label>
+          <Label htmlFor="phoneNumber">{formMessages.billingInfoPage.messages.phoneNumber}</Label>
           <Controller
             name="phoneNumber"
             control={control} // control from useForm()
@@ -114,7 +119,7 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
           )}
         </div>
         <div className="grid gap-1">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">{formMessages.billingInfoPage.messages.email}</Label>
           <Input defaultValue={billingInfo?.email || ""} {...register("email")} disabled={!editable} id="email" />
           {errors.email && (
             <div className="text-xs text-red-600">
@@ -123,7 +128,7 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
           )}
         </div>
         <div className="grid gap-1">
-          <Label htmlFor="first-name">Name</Label>
+          <Label htmlFor="first-name">{formMessages.billingInfoPage.messages.firstName}</Label>
           <Input defaultValue={billingInfo?.firstName || ""} {...register("firstName")} disabled={!editable}
                  id="first-name" />
           {errors.email && (
@@ -133,7 +138,7 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
           )}
         </div>
         <div className="grid gap-1">
-          <Label htmlFor="last-name">Surname</Label>
+          <Label htmlFor="last-name">{formMessages.billingInfoPage.messages.lastName}</Label>
           <Input defaultValue={billingInfo?.lastName || ""} {...register("lastName")} disabled={!editable}
                  id="last-name" />
           {errors.email && (
@@ -143,7 +148,7 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
           )}
         </div>
         <div className="grid gap-1">
-          <Label htmlFor="country">Country</Label>
+          <Label htmlFor="country">{formMessages.billingInfoPage.messages.country}</Label>
           <Input defaultValue={billingInfo?.billingCountry || ""} {...register("billingCountry")} disabled={!editable}
                  id="country" />
           {errors.billingCountry && (
@@ -153,7 +158,7 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
           )}
         </div>
         <div className="grid gap-1">
-          <Label htmlFor="city">City</Label>
+          <Label htmlFor="city">{formMessages.billingInfoPage.messages.city}</Label>
           <Input defaultValue={billingInfo?.billingCity || ""} {...register("billingCity")} disabled={!editable}
                  id="city" />
           {errors.billingCity && (
@@ -163,7 +168,7 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
           )}
         </div>
         <div className="grid gap-1">
-          <Label htmlFor="state">State</Label>
+          <Label htmlFor="state">{formMessages.billingInfoPage.messages.state}</Label>
           <Input defaultValue={billingInfo?.billingState || ""} {...register("billingState")} disabled={!editable}
                  id="state" />
           {errors.billingState && (
@@ -173,7 +178,7 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
           )}
         </div>
         <div className="grid gap-1">
-          <Label htmlFor="address">Address</Label>
+          <Label htmlFor="address">{formMessages.billingInfoPage.messages.address}</Label>
           <Input defaultValue={billingInfo?.billingAddress || ""} {...register("billingAddress")} disabled={!editable}
                  id="address" />
           {errors.billingAddress && (
@@ -183,7 +188,7 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
           )}
         </div>
         <div className="grid gap-1">
-          <Label htmlFor="postal_code">Postal Code</Label>
+          <Label htmlFor="postal_code">{formMessages.billingInfoPage.messages.postalCode}</Label>
           <Input defaultValue={billingInfo?.billingPostalCode || ""} {...register("billingPostalCode")}
                  disabled={!editable} id="postal_code" />
           {errors.billingPostalCode && (
@@ -203,13 +208,12 @@ const BillingInfoPage = ({ billingInfo }: { billingInfo: BillingInfo | undefined
                     "Save"
                   )}
                 </Button>
-                <Button className="ml-auto" variant={"destructive"} onClick={() => setEditable(false)}>Cancel</Button>
+                <Button className="ml-auto" variant={"destructive"} onClick={() => setEditable(false)}>{formMessages.billingInfoPage.messages.cancel}</Button>
               </>)
             }
           </div>
         </div>
       </form>
-
     </div>
   )
 }

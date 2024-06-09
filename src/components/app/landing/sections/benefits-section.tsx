@@ -19,13 +19,13 @@ export const BenefitsSection: ComponentWithLocaleType = async ({ locale }) => {
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
               <span className="relative bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text font-extrabold text-transparent">
-                {siteConfig.messages[2]}
+                {siteConfig.pages.landingPage.messages.unlockGlobalAudiences}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[42rem] text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              {siteConfig.messages[3]}
+              {siteConfig.pages.landingPage.messages.fromLocalToGlobal}
             </Balancer>
           </h3>
         </div>
@@ -87,16 +87,16 @@ export const BenefitsSection: ComponentWithLocaleType = async ({ locale }) => {
             >
               <CardHeader>
                 <CardDescription className="py-2 text-base font-medium tracking-wide text-muted-foreground">
-                  {siteConfig.messages[4]}
+                  {siteConfig.pages.landingPage.messages.speakerDetection}
                 </CardDescription>
                 <CardTitle className="font-urbanist text-3xl font-black tracking-wide">
-                  <Balancer>{siteConfig.messages[5]}</Balancer>
+                  {siteConfig.pages.landingPage.messages.automaticallyIdentifySpeakers}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6 p-0">
                 <p className="px-4 text-base leading-8 tracking-wide text-muted-foreground">
                   <Balancer>
-                    {siteConfig.messages[6]}
+                    {siteConfig.pages.landingPage.messages.smartAlgorithms}
                   </Balancer>
                 </p>
                 <video
@@ -126,16 +126,16 @@ export const BenefitsSection: ComponentWithLocaleType = async ({ locale }) => {
             >
               <CardHeader>
                 <CardDescription className="py-2 text-base font-medium tracking-wide text-muted-foreground">
-                  {siteConfig.messages[7]}
+                  {siteConfig.pages.landingPage.messages.highQualityImplementation}
                 </CardDescription>
                 <CardTitle className="font-urbanist text-3xl font-black tracking-wide">
-                  <Balancer>{siteConfig.messages[8]}</Balancer>
+                  {siteConfig.pages.landingPage.messages.perfectSounds}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6 p-0">
                 <p className="px-4 text-base leading-8 tracking-wide text-muted-foreground">
                   <Balancer>
-                    {siteConfig.messages[9]}
+                    {siteConfig.pages.landingPage.messages.aiGeneratedDesigns}
                   </Balancer>
                 </p>
                 <video

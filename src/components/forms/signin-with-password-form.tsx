@@ -57,49 +57,48 @@ export function SignInWithPasswordForm({formMessages } :  SigninWithPasswordForm
         switch (message) {
           case "not-registered":
             toast({
-              title: "First things first",
-              description:
-                "Please make sure you are signed up before signing in",
+              title: formMessages.signinForm.messages.firstThingsFirst,
+              description: formMessages.signinForm.messages.pleaseSignUp,
             })
             break
           case "incorrect-provider":
             toast({
-              title: "Email already in use with another provider",
-              description: "Perhaps you signed up with a different method?",
+              title: formMessages.signinForm.messages.emailInUse,
+              description: formMessages.signinForm.messages.differentMethod,
             })
             break
           case "unverified-email":
             toast({
-              title: "First things first",
-              description: "Please verify your email address before signing in",
+              title: formMessages.signinForm.messages.firstThingsFirst,
+              description: formMessages.signinForm.messages.verifyEmail,
             })
             break
           case "invalid-credentials":
             toast({
-              title: "Invalid email or Password",
-              description: "Double-check your credentials and try again",
+              title: formMessages.signinForm.messages.invalidCredentials,
+              description: formMessages.signinForm.messages.doubleCheck,
               variant: "destructive",
             })
             break
           case "success":
             toast({
-              title: "Success!",
-              description: "You are now signed in",
+              title: formMessages.signinForm.messages.success,
+              description: formMessages.signinForm.messages.nowSignedIn,
             })
             router.push(searchParams.get("callbackUrl") || DEFAULT_SIGNIN_REDIRECT)
             break
           default:
             toast({
-              title: "Error signing in with password",
-              description: "Please try again",
+              title: formMessages.signinForm.messages.errorSignIn,
+              description: formMessages.signinForm.messages.tryAgain,
               variant: "destructive",
             })
         }
       } catch (error) {
         console.error(error)
         toast({
-          title: "Something went wrong",
-          description: "Please try again",
+          title: formMessages.signinForm.messages.somethingWrong,
+          description: formMessages.signinForm.messages.tryAgain,
           variant: "destructive",
         })
       }
@@ -155,7 +154,7 @@ export function SignInWithPasswordForm({formMessages } :  SigninWithPasswordForm
           ) : (
             <span>{formMessages.signin}</span>
           )}
-          <span className="sr-only">{formMessages.signinForm.messages[0]}</span>
+          <span className="sr-only">{formMessages.signinForm.messages.continueWithPassword}</span>
         </Button>
       </form>
     </Form>

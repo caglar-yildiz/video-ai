@@ -14,16 +14,16 @@ const About = async ({ params: { lang } }: LangPageProps) => {
             <div className="w-full px-4 lg:w-1/2">
               <div className="mb-12 max-w-[540px] lg:mb-0">
                 <h2 className="mb-5 text-3xl font-bold leading-tight  sm:text-[40px] sm:leading-[1.2]">
-                  {siteConfig.pages.about.messages[0]}
+                  {siteConfig.pages.about.messages.why}
                   <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                     {" " +siteConfig.name + "?"}
                   </span>
                 </h2>
                 <p className="mb-10">
-                  {siteConfig.pages.about.messages[1]}
+                  {siteConfig.pages.about.messages.contentCreators}
                   <br />
                   <br />
-                  {siteConfig.pages.about.messages[2]}
+                  {siteConfig.pages.about.messages.educators}
                 </p>
 
                 <a
@@ -65,10 +65,10 @@ const About = async ({ params: { lang } }: LangPageProps) => {
                     <div>
                       <span className="block text-5xl font-extrabold text-white"></span>
                       <span className="block text-base font-semibold text-white">
-                          {siteConfig.pages.about.messages[3]}
+                          {siteConfig.pages.about.messages.languages}
                         </span>
                       <span className="block text-base font-medium text-white text-opacity-70">
-                          {siteConfig.pages.about.messages[4]}
+                          {siteConfig.pages.about.messages.translate}
                         </span>
                     </div>
                     <div>

@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/card"
 import { PasswordUpdateForm } from "@/components/forms/password-update-form"
 import { Icons } from "@/components/icons/icons"
+import { Lang } from "@/i18n-config"
+import { getSiteConfig } from "@/config/site" // Add this line
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -22,12 +24,18 @@ export const metadata: Metadata = {
 }
 
 interface PasswordUpdatePageProps {
+  params: {
+    lang : Lang
+  }
   searchParams: { [key: string]: string | string[] | undefined }
 }
 
 export default async function PasswordUpdatePage({
-  searchParams,
-}: Readonly<PasswordUpdatePageProps>): Promise<JSX.Element> {
+                                                   params,
+                                                   searchParams,
+                                                 }: Readonly<PasswordUpdatePageProps>): Promise<JSX.Element> {
+  const siteConfig = await getSiteConfig(params.lang)
+
   if (searchParams.token) {
     const user = await getUserByResetPasswordToken({
       token: String(searchParams.token),
@@ -38,9 +46,9 @@ export default async function PasswordUpdatePage({
         <div className="flex min-h-screen w-full items-center justify-center">
           <Card className="max-sm:flex max-sm:h-screen max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
             <CardHeader>
-              <CardTitle>Invalid Reset Password Token</CardTitle>
+              <CardTitle>{siteConfig.pages.passwordUpdate.messages.invalidResetPasswordToken}</CardTitle>
               <CardDescription>
-                Please return to the sign in page and try again
+                {siteConfig.pages.passwordUpdate.messages.returnToSignIn}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -53,8 +61,8 @@ export default async function PasswordUpdatePage({
                 )}
               >
                 <Icons.arrowLeft className="mr-2 h-4 w-4" />
-                <span className="sr-only">Try again</span>
-                Try again
+                <span className="sr-only">{siteConfig.pages.passwordUpdate.messages.tryAgain}</span>
+                {siteConfig.pages.passwordUpdate.messages.tryAgain}
               </Link>
             </CardContent>
           </Card>
@@ -66,20 +74,22 @@ export default async function PasswordUpdatePage({
       <div className="flex min-h-screen w-full items-center justify-center">
         <Card className="max-sm:flex max-sm:h-screen max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
           <CardHeader>
-            <CardTitle>Password Update</CardTitle>
-            <CardDescription>Set your new password</CardDescription>
+            <CardTitle>{siteConfig.pages.passwordUpdate.messages.passwordUpdate}</CardTitle>
+            <CardDescription>
+              {siteConfig.pages.passwordUpdate.messages.setNewPassword}
+            </CardDescription>
           </CardHeader>
           <CardContent className="grid gap-2">
             <PasswordUpdateForm
               resetPasswordToken={String(searchParams.token)}
             />
             <Link
-              aria-label="Cancel password update"
+              aria-label={siteConfig.pages.passwordUpdate.messages.cancelPasswordUpdate}
               href="/signin"
               className={buttonVariants({ variant: "outline" })}
             >
-              <span className="sr-only">Cancel password update</span>
-              Cancel
+              <span className="sr-only">{siteConfig.pages.passwordUpdate.messages.cancelPasswordUpdate}</span>
+              {siteConfig.pages.passwordUpdate.messages.cancel}
             </Link>
           </CardContent>
         </Card>
@@ -90,9 +100,9 @@ export default async function PasswordUpdatePage({
       <div className="flex min-h-screen w-full items-center justify-center">
         <Card className="max-sm:flex max-sm:h-screen max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
           <CardHeader>
-            <CardTitle>Missing Reset Password Token</CardTitle>
+            <CardTitle>{siteConfig.pages.passwordUpdate.messages.missingResetPasswordToken}</CardTitle>
             <CardDescription>
-              Please return to the sign in page and try again
+              {siteConfig.pages.passwordUpdate.messages.returnToSignIn}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -102,8 +112,8 @@ export default async function PasswordUpdatePage({
               className={cn(buttonVariants({ variant: "secondary" }), "w-full")}
             >
               <Icons.arrowLeft className="mr-2 h-4 w-4" />
-              <span className="sr-only">Try again</span>
-              Try again
+              <span className="sr-only">{siteConfig.pages.passwordUpdate.messages.tryAgain}</span>
+              {siteConfig.pages.passwordUpdate.messages.tryAgain}
             </Link>
           </CardContent>
         </Card>

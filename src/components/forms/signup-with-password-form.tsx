@@ -23,8 +23,13 @@ import { Input } from "@/components/ui/input"
 import { useToast } from "@/components/ui/use-toast"
 import { PasswordInput } from "@/components/common/password-input"
 import { Icons } from "@/components/icons/icons"
+import { FormMessages } from "@/config/site"
 
-export function SignUpWithPasswordForm(): JSX.Element {
+type SignupWithPasswordForm = {
+  formMessages : FormMessages
+}
+
+export function SignUpWithPasswordForm({formMessages } :  SignupWithPasswordForm): JSX.Element {
   const router = useRouter()
   const { toast } = useToast()
   const [isPending, startTransition] = React.useTransition()
@@ -50,32 +55,31 @@ export function SignUpWithPasswordForm(): JSX.Element {
         switch (message) {
           case "exists":
             toast({
-              title: "User with this email address already exists",
-              description: "If this is you, please sign in instead",
+              title: formMessages.signUpWithPasswordForm.messages.userExists,
+              description: formMessages.signUpWithPasswordForm.messages.signInInstead,
               variant: "destructive",
             })
             form.reset()
             break
           case "success":
             toast({
-              title: "Success!",
-              description: "Check your inbox to verify your email address",
+              title: formMessages.signUpWithPasswordForm.messages.success,
+              description: formMessages.signUpWithPasswordForm.messages.checkInbox,
             })
             router.push("/signin")
             break
           default:
             toast({
-              title: "Something went wrong",
-              description: "Please try again",
+              title: formMessages.signUpWithPasswordForm.messages.somethingWrong,
+              description: formMessages.signUpWithPasswordForm.messages.tryAgain,
               variant: "destructive",
             })
-            console.error(message)
         }
       } catch (error) {
         console.error(error)
         toast({
-          title: "Something went wrong",
-          description: "Please try again",
+          title: formMessages.signUpWithPasswordForm.messages.somethingWrong,
+          description: formMessages.signUpWithPasswordForm.messages.tryAgain,
           variant: "destructive",
         })
       }
@@ -93,7 +97,7 @@ export function SignUpWithPasswordForm(): JSX.Element {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{formMessages.signUpWithPasswordForm.messages.email}</FormLabel>
               <FormControl>
                 <Input placeholder="johnsmith@gmail.com" {...field} />
               </FormControl>
@@ -107,7 +111,7 @@ export function SignUpWithPasswordForm(): JSX.Element {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Password</FormLabel>
+              <FormLabel>{formMessages.signUpWithPasswordForm.messages.password}</FormLabel>
               <FormControl>
                 <PasswordInput placeholder="**********" {...field} />
               </FormControl>
@@ -121,7 +125,7 @@ export function SignUpWithPasswordForm(): JSX.Element {
           name="confirmPassword"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Confirm Password</FormLabel>
+              <FormLabel>{formMessages.signUpWithPasswordForm.messages.confirmPassword}</FormLabel>
               <FormControl>
                 <PasswordInput placeholder="**********" {...field} />
               </FormControl>
@@ -137,14 +141,14 @@ export function SignUpWithPasswordForm(): JSX.Element {
                 className="mr-2 size-4 animate-spin"
                 aria-hidden="true"
               />
-              <span>Signing up...</span>
+              <span>{formMessages.signUpWithPasswordForm.messages.signingUp}</span>
             </>
           ) : (
-            <span>Continue</span>
+            <span>{formMessages.signUpWithPasswordForm.messages.continue}</span>
           )}
           <span className="sr-only">
-            Continue signing up with email and password
-          </span>
+          {formMessages.signUpWithPasswordForm.messages.continueSigningUp}
+        </span>
         </Button>
       </form>
     </Form>

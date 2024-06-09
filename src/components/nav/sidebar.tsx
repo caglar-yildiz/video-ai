@@ -20,7 +20,7 @@ import { prisma } from "@/db"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import LinkWrapper from "@/components/common/link-wrapper"
 import {  Lang } from "@/i18n-config"
-import { cookies, headers } from "next/headers"
+import { cookies } from "next/headers"
 import * as React from "react"
 import { getCookie } from "cookies-next"
 
@@ -59,12 +59,12 @@ const Sidebar = async () => {
             <>
               <Card className={"bg-transparent"}>
                 <CardContent>
-                  <p className={"font-bold"}>Credits</p>
-                  <p className="flex items-center">Credits Left:  {" "} { user.credit + " "} </p>
+                  <p className={"font-bold"}>{siteConfig.profile.credits}</p>
+                  <p className="flex items-center">{siteConfig.profile.creditsLeft}  {" "} { user.credit + " "} </p>
                 </CardContent>
                 <CardFooter>
                   <Button className="w-full">
-                    <LinkWrapper locale={locale as Lang} href={"/dashboard/credit"}> Buy More </LinkWrapper>
+                    <LinkWrapper locale={locale as Lang} href={"/dashboard/credit"}>{siteConfig.profile.buyMore}</LinkWrapper>
                   </Button>
                 </CardFooter>
               </Card>
@@ -118,24 +118,13 @@ const Sidebar = async () => {
                         className="mr-2 size-4"
                         aria-hidden="true"
                       />
-                      Account
+                      {siteConfig.profile.account}
                     </LinkWrapper>
                   </DropdownMenuItem>
-                  { user?.role === "ADMIN" && (
-                    <DropdownMenuItem asChild>
-                      <LinkWrapper locale={locale as Lang} href="/dashboard/organization">
-                        <Icons.organization
-                          className="mr-2 size-4"
-                          aria-hidden="true"
-                        />
-                        Organization
-                      </LinkWrapper>
-                    </DropdownMenuItem>
-                  )}
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem asChild>
-                  <SignOutButton />
+                  <SignOutButton buttonText={siteConfig.profile.signOut} />
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>

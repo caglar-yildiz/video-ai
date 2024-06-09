@@ -17,7 +17,7 @@ import { OAuthButtons } from "@/components/app/auth/oauth-buttons"
 import { SignUpWithPasswordForm } from "@/components/forms/signup-with-password-form"
 import { Icons } from "@/components/icons/icons"
 import { Lang } from "@/i18n-config"
-import { getSiteConfig } from "@/config/site"
+import { getSiteConfig } from "@/config/site" // Add this line
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -41,13 +41,13 @@ export default async function SignUpPage({ params, searchParams }: {
       <Card className="max-sm:flex max-sm:w-full max-sm:flex-col max-sm:items-center max-sm:justify-center max-sm:rounded-none max-sm:border-none sm:min-w-[370px] sm:max-w-[368px]">
         <CardHeader className="space-y-1">
           <div className="flex items-center justify-between">
-            <CardTitle className="text-2xl">{siteConfig.pages.signup.messages[0]}</CardTitle>
+            <CardTitle className="text-2xl">{siteConfig.pages.signup.messages.signUp}</CardTitle>
             <Link href="/">
               <Icons.close className="h-4 w-4" />
             </Link>
           </div>
           <CardDescription>
-            {siteConfig.pages.signup.messages[1]}
+            {siteConfig.pages.signup.messages.getStarted}
           </CardDescription>
         </CardHeader>
         <CardContent className="max-sm:w-full max-sm:max-w-[340px] max-sm:px-10">
@@ -58,35 +58,35 @@ export default async function SignUpPage({ params, searchParams }: {
             </div>
             <div className="relative mb-3 mt-6 flex justify-center text-xs uppercase">
               <span className="bg-background px-2">
-                {siteConfig.pages.login.messages[2]}
+                {siteConfig.pages.login.messages.continueWithPassword}
               </span>
             </div>
           </div>
-          <SignUpWithPasswordForm />
+          <SignUpWithPasswordForm formMessages={siteConfig.formMessages}/>
         </CardContent>
         <CardFooter className="grid w-full gap-4 text-sm text-muted-foreground max-sm:max-w-[340px] max-sm:px-10">
           <div>
             <div>
-              <span> {siteConfig.pages.signup.messages[2]}</span>
+              <span> {siteConfig.pages.signup.messages.alreadyAccount}</span>
               <Link
                 aria-label="Sign in"
                 href="/signin"
                 className="font-bold tracking-wide text-primary underline-offset-4 transition-all hover:underline"
               >
-                {siteConfig.pages.login.messages[0]}
-                <span className="sr-only">{siteConfig.pages.signup.messages[0]}</span>
+                {siteConfig.pages.login.messages.signIn}
+                <span className="sr-only">{siteConfig.pages.signup.messages.signUp}</span>
               </Link>
               .
             </div>
             <div>
-              <span> {siteConfig.pages.signup.messages[6]}</span>
+              <span> {siteConfig.pages.signup.messages.lostEmailVerification}</span>
               <Link
                 aria-label="Resend email verification link"
                 href="/signup/reverify-email"
                 className="text-sm font-normal text-primary underline-offset-4 transition-colors hover:underline"
               >
-                {siteConfig.pages.signup.messages[4]}
-                <span className="sr-only">{siteConfig.pages.signup.messages[5]}</span>
+                {siteConfig.pages.signup.messages.resendEmailVerification}
+                <span className="sr-only">{siteConfig.pages.signup.messages.resend}</span>
               </Link>
               .
             </div>
@@ -98,7 +98,7 @@ export default async function SignUpPage({ params, searchParams }: {
               href="/tos"
               className="font-semibold underline-offset-4 transition-all hover:underline"
             >
-              {siteConfig.pages.signup.messages[7]}
+              {siteConfig.pages.signup.messages.termsOfService}
             </Link>{" "}
             <br className="xs:hidden sm:block md:hidden" />
             &
@@ -108,7 +108,7 @@ export default async function SignUpPage({ params, searchParams }: {
               className="font-semibold underline-offset-4 transition-all hover:underline"
             >
               {" "}
-              {siteConfig.pages.signup.messages[8]}
+              {siteConfig.pages.signup.messages.privacyPolicy}
             </Link>
           </div>
         </CardFooter>

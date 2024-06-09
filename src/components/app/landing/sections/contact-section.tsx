@@ -17,13 +17,13 @@ export const ContactSection: ComponentWithLocaleType =  async ({ locale }) => {
           <h2 className="font-urbanist text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
             <Balancer>
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-               {siteConfig.messages["16"]}
+               {siteConfig.pages.landingPage.messages.letUsGetInTouch}
               </span>
             </Balancer>
           </h2>
           <h3 className="max-w-[84rem] text-muted-foreground sm:text-xl sm:leading-8">
             <Balancer>
-              {siteConfig.messages["17"]}
+              {siteConfig.pages.landingPage.messages.feelFreeToEmailUs}
             </Balancer>
           </h3>
         </div>

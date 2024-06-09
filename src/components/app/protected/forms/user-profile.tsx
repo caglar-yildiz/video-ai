@@ -12,9 +12,14 @@ import { User } from "@prisma/client"
 import { useState } from "react"
 import { Icons } from "@/components/icons/icons"
 import { updateUserInfo } from "@/actions/user"
+import { FormMessages } from "@/config/site"
 
 
-const UserProfile = ({ user }: { user: User }) => {
+const UserProfile = ({ user , formMessages } :
+                       {
+                         user: User
+                         formMessages : FormMessages
+                       }) => {
   const { toast } = useToast()
   const [isPending, startTransition] = React.useTransition()
   const [editable, setEditable] = useState<boolean>(false)
@@ -39,16 +44,16 @@ const UserProfile = ({ user }: { user: User }) => {
         const result = await updateUserInfo(data)
         if (result) {
           toast({
-            title: "Profile update",
-            description: "Your information has been updated",
+            title: formMessages.userProfile.messages.profileUpdate,
+            description: formMessages.userProfile.messages.yourInformationHasBeenUpdated,
           })
           setEditable(false)
         }
 
       } catch (e) {
         toast({
-          title: "Something went wrong",
-          description: "Please try again",
+          title: formMessages.userProfile.messages.somethingWentWrong,
+          description: formMessages.userProfile.messages.pleaseTryAgain,
           variant: "destructive",
         })
       }
@@ -58,15 +63,15 @@ const UserProfile = ({ user }: { user: User }) => {
   return (
     <>
       <div className={"flex justify-end"}>
-        {!editable && <Button className="ml-auto" onClick={() => setEditable(true)}>Edit</Button>}
+        {!editable && <Button className="ml-auto" onClick={() => setEditable(true)}>{formMessages.userProfile.messages.edit}</Button>}
       </div>
       <form onSubmit={handleSubmit((data) => onSubmit(data))}>
         <div className="grid gap-2">
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email">{formMessages.userProfile.messages.email}</Label>
           <Input defaultValue={user?.email || ''} disabled={true} id="email" />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="email">Name</Label>
+          <Label htmlFor="name">{formMessages.userProfile.messages.name}</Label>
           <Input defaultValue={user?.name || ''} {...register("name")} disabled={!editable} id="email" />
           {errors.name && (
             <div className="text-xs text-red-600">
@@ -75,8 +80,8 @@ const UserProfile = ({ user }: { user: User }) => {
           )}
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="email">Surname</Label>
-          <Input defaultValue={user?.surname || ''} {...register("lastName")} disabled={!editable} id="email" />
+          <Label htmlFor="surname">{formMessages.userProfile.messages.surname}</Label>
+          <Input defaultValue={user?.surname || ''} {...register("lastName")} disabled={!editable} id="surname" />
           {errors.lastName && (
             <div className="text-xs text-red-600">
               {errors.lastName.message}
@@ -84,8 +89,8 @@ const UserProfile = ({ user }: { user: User }) => {
           )}
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="email">User Name</Label>
-          <Input defaultValue={user?.username || ''} {...register("userName")} disabled={!editable} id="email" />
+          <Label htmlFor="user-name">{formMessages.userProfile.messages.userName}</Label>
+          <Input defaultValue={user?.username || ''} {...register("userName")} disabled={!editable} id="user-name" />
           {errors.userName && (
             <div className="text-xs text-red-600">
               {errors.userName.message}
@@ -104,7 +109,7 @@ const UserProfile = ({ user }: { user: User }) => {
                     "Save"
                   )}
                 </Button>
-                <Button className="ml-auto" variant={"destructive"} onClick={() => setEditable(false)}>Cancel</Button>
+                <Button className="ml-auto" variant={"destructive"} onClick={() => setEditable(false)}>{formMessages.userProfile.messages.save}</Button>
               </>)
             }
           </div>
