@@ -1,4 +1,3 @@
-
 import Parampos  from "@caglar-yildiz/parampos"
 import { ServiceTurkposClient } from "@caglar-yildiz/parampos/dist/lib/serviceturkpos/client"
 
@@ -9,7 +8,8 @@ const getPaymentProvider = async () => {
     CLIENT_CODE : "10738",
     CLIENT_USERNAME :"Test",
     CLIENT_PASSWORD : "Test",
-    MODE : "test"
+    MODE : "test",
+    GUID : "0c13d406-873b-403b-9c09-a5766840d98c"
   })
   return await param.getClient()
 }

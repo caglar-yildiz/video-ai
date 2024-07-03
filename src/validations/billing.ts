@@ -13,6 +13,20 @@ export const updateBillingInfoSchema =  z.object({
   billingPostalCode: z.string(),
   billingCountry: z.string(),
   title: z.string(),
+  isCorporate: z.boolean(),
+  companyName: z.string().optional(),
+  taxId: z.string().optional(),
+  taxOffice: z.string().optional(),
+  companyTitle: z.string().optional(),
+}).refine(data => !(data.isCorporate && !data.companyName), {
+  message: "companyNameIsRequiredForCorporateAccounts",
+  path: ["companyName"],
+}).refine(data => !(data.isCorporate && !data.taxId), {
+  message: "taxIdIsRequiredForCorporateAccounts",
+  path: ["taxId"],
+}).refine(data => !(data.isCorporate && !data.companyTitle), {
+  message: "companyTitleIsRequiredForCorporateAccounts",
+  path: ["taxId"],
 });
 
 

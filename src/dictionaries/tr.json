@@ -48,7 +48,7 @@
       }
     },
     "buttons": {
-      "gotoDashboard": "Gösterge Tablosuna Git",
+      "gotoDashboard": "Gösterge Paneli Git",
       "getStarted": "Başlayın",
       "new": "Yeni",
       "generate": "Oluştur",
@@ -72,7 +72,7 @@
     }
   },
   "sideNavItems": {
-    "dashboard": "Gösterge Tablosu",
+    "dashboard": "Gösterge Paneli",
     "createDubbing": "Dublaj Oluştur",
     "dubbing2": "Dublaj2",
     "myDubbings": "Dublajlarım",
@@ -188,13 +188,24 @@
         "state": "Eyalet",
         "address": "Adres",
         "postalCode": "Posta Kodu",
+        "companyTitle": "Şirket Ünvanı",
+        "companyName": "Şirket Adı",
+        "taxID": "Vergi Kimlik Numarası",
+        "taxOffice": "Veri Dairesi",
+        "personal": "Kişiye Fatura",
+        "corporate": "Kurumsal Fatura",
         "save": "Kaydet",
         "edit" : "Düzenle",
         "cancel": "İptal",
         "billingInformationUpdated": "Fatura bilgileri güncellendi",
         "yourBillingInformationHasBeenUpdated": "Fatura bilgileriniz güncellendi",
         "somethingWentWrong": "Bir şeyler yanlış gitti",
-        "pleaseTryAgain": "Lütfen tekrar deneyin"
+        "pleaseTryAgain": "Lütfen tekrar deneyin",
+        "companyNameIsRequiredForCorporateAccounts": "Şirket adı kurumsal hesaplar için gereklidir",
+        "taxIdIsRequiredForCorporateAccounts": "Veri kimlik numarası kurumsal hesaplar için gereklidir",
+        "companyTitleIsRequiredForCorporateAccounts": "Şirket ünvanı kurumsal hesaplar için gereklidir",
+        "required": "Gerekli",
+        "billingType": "Fatura Türü"
       }
     },
     "creditCard": {
@@ -203,12 +214,14 @@
         "expDate": "Son kullanma tarihi",
         "CCV": "Güvenlik kodu",
         "cardHolder": "Kart sahibi",
-        "purchase": "Satın Alma",
+        "purchase": "Satın Al",
         "payment": "Ödeme",
         "paymentSuccessfullyMade": "Ödeme Başarıyla Gerçekleştirildi",
         "paymentFailed": "Ödeme Başarısız",
         "somethingWentWrong": "Bir şeyler yanlış gitti",
-        "pleaseTryAgain": "Lütfen tekrar deneyin"
+        "pleaseTryAgain": "Lütfen tekrar deneyin",
+        "priceMismatch" : "Ücret eşleşmiyor, lütfen tekrar deneyin",
+        "use3DSecure" : "3D Secure Kullanmak İstiyorum"
       }
     },
     "userProfile": {
@@ -251,6 +264,17 @@
         "educators": "Farklı arka planlardan ve yeteneklerden öğrencilere daha erişilebilir ve kapsayıcı dersler sunmak isteyen eğitimciler.",
         "languages": "21 Dil, 1 Çözüm:",
         "translate": "Her şeyi kolayca çevirin"
+      }
+    },
+    "confirmPayment" : {
+      "messages": {
+        "paymentSuccessfullyMade": "Ödeme Başarıyla Tamamlandı",
+        "paymentFailed": "Ödeme Başarısız",
+        "paymentSucceeded": "Ödeme Başarılı",
+        "somethingWentWrong": "Bişeyler yanlış gitti",
+        "pleaseTryAgain": "Lütfe tekrar deneyin",
+        "returnToDashboard": "Gösterge Paneline Dön",
+        "verificationFailed": "Doğrulama Başarısız"
       }
     },
     "pricing": {
@@ -368,7 +392,8 @@
         "reviewAndPurchase": "Siparişinizi gözden geçirin ve satın almayı tamamlayın.",
         "billingInformation": "Fatura Bilgileri",
         "paymentMethod": "Ödeme Yöntemi",
-        "goBack": "Geri gitmek istiyor musunuz"
+        "goBack": "Geri gitmek istiyor musunuz",
+        "credits": "Kredi"
       }
     },
     "account": {

@@ -97,7 +97,7 @@ const PayProduct =  async ({ params: { lang , productId} }:  PayProductProps )  
 
               <div className="flex items-center justify-between">
                 <div>{siteConfig.pages.payProduct.messages.creditsToBeGranted}</div>
-                <div>{product?.credits_amount + " Credits"}</div>
+                <div>{product?.credits_amount + " " + siteConfig.pages.payProduct.messages.credits}</div>
               </div>
               <div className="flex items-center justify-between">
                 <div>{siteConfig.pages.payProduct.messages.total}</div>
@@ -129,7 +129,7 @@ const PayProduct =  async ({ params: { lang , productId} }:  PayProductProps )  
               <AccordionItem value="credit-card">
                 <AccordionTrigger>{siteConfig.pages.payProduct.messages.paymentMethod}</AccordionTrigger>
                 <AccordionContent>
-                  <CreditCard formMessages={siteConfig.formMessages} productId={productId} price={product?.id} userId={user?.id}/>
+                  <CreditCard formMessages={siteConfig.formMessages} productId={productId} price={product?.price} userId={user?.id}/>
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

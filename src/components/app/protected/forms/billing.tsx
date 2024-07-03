@@ -26,6 +26,7 @@ const BillingInfoPage = ({ billingInfo, formMessages }:
   const [isPending, startTransition] = React.useTransition()
   const [editable, setEditable] = useState<boolean>(false)
   const [phone, setPhone] = useState("")
+  const [isCorporate, setIsCorporate] = useState<boolean>(billingInfo?.isCorporate || false)
 
   const {
     register,
@@ -44,10 +45,14 @@ const BillingInfoPage = ({ billingInfo, formMessages }:
       billingState : billingInfo?.billingState || "",
       billingPostalCode : billingInfo?.billingPostalCode || "",
       billingCountry  : billingInfo?.billingCountry || "",
+      isCorporate: billingInfo?.isCorporate || false,
+      companyName : billingInfo?.companyName || "",
+      taxId : billingInfo?.taxId || "",
+      taxOffice: billingInfo?.taxOffice || "",
+      companyTitle: billingInfo?.companyTitle || "",
     },
   })
 
-  console.log(allCountries)
 
   useEffect(() => {
     if (!billingInfo) {
@@ -86,7 +91,7 @@ const BillingInfoPage = ({ billingInfo, formMessages }:
         {!editable && <Button className="ml-auto" onClick={() => setEditable(true)}>{formMessages.billingInfoPage.messages.edit}</Button>}
       </div>
       <form onSubmit={handleSubmit((data) => onSubmit(data))}>
-        <div className="grid gap-1">
+        <div className="grid gap-1 py-4">
           <Label htmlFor="title">{formMessages.billingInfoPage.messages.title}</Label>
 
           <Input defaultValue={billingInfo?.title || ""} {...register("title")} disabled={!editable} id="title" />
@@ -197,6 +202,64 @@ const BillingInfoPage = ({ billingInfo, formMessages }:
             </div>
           )}
         </div>
+        <div className="mb-4 py-4">
+          <Label className="block text-gray-700">{formMessages.billingInfoPage.messages.billingType}</Label>
+          <div className="flex m-4 space-x-4">
+            <Label className="flex items-center">
+              <input type="radio" name="billingType" value="Bireysel" className="mr-2" checked={!isCorporate}
+                     onClick={() => setIsCorporate(false)} />
+              {formMessages.billingInfoPage.messages.personal}
+            </Label>
+            <Label className="flex items-center">
+              <input type="radio" name="billingType" value="Kurumsal" className="mr-2" checked={isCorporate}
+                     onClick={() => setIsCorporate(true)} />
+              {formMessages.billingInfoPage.messages.corporate}
+            </Label>
+          </div>
+        </div>
+        <div id="corporateFields" className={isCorporate ? "" : "hidden"}>
+          <div className="grid gap-1">
+            <Label htmlFor="company_title">{formMessages.billingInfoPage.messages.companyTitle}</Label>
+            <Input defaultValue={billingInfo?.companyTitle || ""} {...register("companyTitle")} disabled={!editable}
+                   id="company_title" />
+            {errors.companyTitle && (
+              <div className="text-xs text-red-600">
+                {formMessages.billingInfoPage.messages["companyTitleIsRequiredForCorporateAccounts"]}
+              </div>
+            )}
+          </div>
+          <div className="grid gap-1">
+            <Label htmlFor="company_name">{formMessages.billingInfoPage.messages.companyName}</Label>
+            <Input defaultValue={billingInfo?.companyName || ""} {...register("companyName")} disabled={!editable}
+                   id="company_name" />
+            {errors.companyName && (
+              <div className="text-xs text-red-600">
+                {formMessages.billingInfoPage.messages["companyNameIsRequiredForCorporateAccounts"]}
+              </div>
+            )}
+          </div>
+          <div className="grid gap-1">
+            <Label htmlFor="tax_id">{formMessages.billingInfoPage.messages.taxID}</Label>
+            <Input defaultValue={billingInfo?.taxId || ""} {...register("taxId")} disabled={!editable}
+                   id="tax_id" />
+            {errors.taxId && (
+              <div className="text-xs text-red-600">
+                {formMessages.billingInfoPage.messages["taxIdIsRequiredForCorporateAccounts"]}
+              </div>
+            )}
+          </div>
+          <div className="grid gap-1">
+            <Label htmlFor="tax_office">{formMessages.billingInfoPage.messages.taxOffice}</Label>
+            <Input defaultValue={billingInfo?.taxOffice || ""} {...register("taxOffice")} disabled={!editable}
+                   id="tax_office" />
+            {errors.taxOffice && (
+              <div className="text-xs text-red-600">
+                {errors.taxOffice.message}
+              </div>
+            )}
+          </div>
+
+        </div>
         <div className={"flex justify-end"}>
           <div>
             {editable &&
@@ -205,10 +268,11 @@ const BillingInfoPage = ({ billingInfo, formMessages }:
                   {isPending ? (
                     <Icons.spinner className="size-2 animate-spin" aria-hidden="true" />
                   ) : (
-                    "Save"
+                    <>{formMessages.billingInfoPage.messages.save}</>
                   )}
                 </Button>
-                <Button className="ml-auto" variant={"destructive"} onClick={() => setEditable(false)}>{formMessages.billingInfoPage.messages.cancel}</Button>
+                <Button className="ml-auto" variant={"destructive"}
+                        onClick={() => setEditable(false)}>{formMessages.billingInfoPage.messages.cancel}</Button>
               </>)
             }
           </div>

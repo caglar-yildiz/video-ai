@@ -130,6 +130,7 @@ model Country {
   name           String
   subscriptions  Subscription[]
   products  Product[]
+  payment_code   String           @default("USD")
   @@map("countries")
 }
 
@@ -202,6 +203,11 @@ model PaymentTransaction {
   paymentMethod     String               @map("payment_method")
   transactionAt     DateTime?             @default(now()) @map("transaction_date")
   status            TransactionStatus
+  siparisId         String?               @unique @map("siparis_id")
+  islemId           String?               @unique @map("islem_id")
+  UCD_MD            String?               @unique @map("ucd_md")
+  islem_GUID        String?               @unique @map("islem_guid")
+  message           String?
   product           Product            @relation(fields: [productId], references: [id])
   user              User                 @relation(fields: [userId], references: [id])
   @@map("payment_transactions")
@@ -220,6 +226,11 @@ model BillingInfo {
   billingCountry   String
   title            String
   userId           String  @unique
+  isCorporate      Boolean  @default(false)
+  companyName      String?
+  taxId        String?
+  taxOffice        String?
+  companyTitle     String?
   User             User    @relation(fields: [userId], references: [id])
 }
 

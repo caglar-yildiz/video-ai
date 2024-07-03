@@ -51,7 +51,6 @@ export const customFetch = async (input: RequestInfo, init?: RequestInit): Promi
     'X-AUTH-TOKEN': authToken ? authToken :  "",
   };
 
-
   // Make the fetch request with the updated headers
   return fetch(input, { ...init, headers });
 }

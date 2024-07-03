@@ -12,7 +12,7 @@ interface LandingLayoutProps extends LangPageProps {
 const Layout = async ({
                         children,
                         params: { lang },
-                      }: LandingLayoutProps) => {
+                      }: LandingLayoutProps)   => {
 
   const session = await auth()
   const user = session?.user.email ? await prisma.user.findUnique({
@@ -26,10 +26,12 @@ const Layout = async ({
   }
 
   return (
-    <div className="overflow flex ">
-      <Sidebar/>
-      <main className="w-full overflow-y-auto pl-72">{children}</main>
-    </div>
+    <>
+      <main className="overflow flex ">
+        <Sidebar />
+        <div className="w-full overflow-y-auto pl-72">{children}</div>
+      </main>
+    </>
   )
 }
 

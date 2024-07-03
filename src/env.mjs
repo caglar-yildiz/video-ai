@@ -20,6 +20,11 @@ export const env = createEnv({
     RESEND_HOST: z.string(),
     RESEND_USERNAME: z.string(),
     RESEND_PORT: z.string(),
+    PARAMPOS_CLIENT_CODE: z.string(),
+    PARAMPOS_CLIENT_USERNAME: z.string(),
+    PARAMPOS_CLIENT_PASSWORD: z.string(),
+    PARAMPOS_MODE: z.string(),
+    PARAMPOS_GUID: z.string(),
   },
 
   /**
@@ -50,6 +55,11 @@ export const env = createEnv({
     RESEND_HOST: process.env.RESEND_HOST,
     RESEND_USERNAME: process.env.RESEND_USERNAME,
     RESEND_PORT: process.env.RESEND_PORT,
+    PARAMPOS_CLIENT_CODE: process.env.PARAMPOS_CLIENT_CODE,
+    PARAMPOS_CLIENT_USERNAME: process.env.PARAMPOS_CLIENT_USERNAME,
+    PARAMPOS_CLIENT_PASSWORD: process.env.PARAMPOS_CLIENT_PASSWORD,
+    PARAMPOS_MODE: process.env.PARAMPOS_MODE,
+    PARAMPOS_GUID: process.env.PARAMPOS_GUID,
   },
   /**
    * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation.

@@ -192,13 +192,24 @@
         "state": "State",
         "address": "Address",
         "postalCode": "Postal Code",
+        "companyTitle": "Company Title",
+        "companyName": "Company Name",
+        "taxID": "Tax Number",
+        "taxOffice": "Tax Office",
+        "personal": "Personal Billing",
+        "corporate": "Corporate Billing",
         "save": "Save",
         "cancel": "Cancel",
         "edit" : "Edit",
         "billingInformationUpdated": "Billing information updated",
         "yourBillingInformationHasBeenUpdated": "Your billing information has been updated",
         "somethingWentWrong": "Something went wrong",
-        "pleaseTryAgain": "Please try again"
+        "pleaseTryAgain": "Please try again",
+        "companyNameIsRequiredForCorporateAccounts": "Company name is required for corporate accounts",
+        "taxIdIsRequiredForCorporateAccounts": "Tax ID is required for corporate accounts",
+        "companyTitleIsRequiredForCorporateAccounts": "Company title is required for corporate accounts",
+        "required": "Required",
+        "billingType": "Billing Type"
       }
     },
     "creditCard": {
@@ -212,7 +223,9 @@
         "paymentSuccessfullyMade": "Payment Successfully Made",
         "paymentFailed": "Payment Failed",
         "somethingWentWrong": "Something went wrong",
-        "pleaseTryAgain": "Please try again"
+        "pleaseTryAgain": "Please try again",
+        "priceMismatch" : "Price don't match, please try again",
+        "use3DSecure" : "Want to use 3D Secure?"
       }
     },
     "userProfile": {
@@ -254,7 +267,19 @@
         "contentCreators": "Content creators who want to expand their reach and engagement with a multilingual audience. Influencers who want to connect and interact with their fans and followers in their native languages.\n",
         "educators": "Educators who want to make their courses and lessons more\n                  accessible and inclusive for learners of different backgrounds\n                  and abilities.",
         "languages": "21 Languages, 1 Solution:",
-        "translate": "Translate anything, effortlessly"
+        "translate": "Translate anything, effortlessly",
+        "returnToDashboard": "Return to Dashboard"
+      }
+    },
+    "confirmPayment" : {
+      "messages": {
+        "paymentSuccessfullyMade": "Congratulations! Your payment was processed successfully.",
+        "paymentFailed": "Payment Failed",
+        "paymentSucceeded": "Payment Successfull",
+        "somethingWentWrong": "Something went wrong",
+        "pleaseTryAgain": "Please try again",
+        "returnToDashboard": "Return to Dashboard",
+        "verificationFailed": "Verification Failed"
       }
     },
     "pricing" : {
@@ -372,7 +397,8 @@
         "reviewAndPurchase": "Review your order and complete the purchase.",
         "billingInformation": "Billing Information",
         "paymentMethod": "Payment Method",
-        "goBack": "Do you want to go back"
+        "goBack": "Do you want to go back",
+        "credits": "Credits"
       }
     },
     "account": {

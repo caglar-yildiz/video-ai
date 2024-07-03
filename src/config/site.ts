@@ -109,5 +109,5 @@ export type FrequentlyAskedQuestions = ThenArg<ReturnType<typeof getSiteConfig>>
 
 export type NewsLetterMessages = ThenArg<ReturnType<typeof getSiteConfig>>["formMessages"]["newsletter"]
 
-export type FeaturesSection = ThenArg<ReturnType<typeof getSiteConfig>>["pages"]
+export type ConfirmPaymentPage = ThenArg<ReturnType<typeof getSiteConfig>>["pages"]["confirmPayment"]["messages"]
 

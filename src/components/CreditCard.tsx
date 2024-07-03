@@ -20,21 +20,37 @@ import { handleProductPurchase } from "@/actions/payment"
 import { useToast } from "@/components/ui/use-toast"
 import { Icons } from "@/components/icons/icons"
 import { FormMessages } from "@/config/site"
+import { useRouter } from "next/navigation"
 
 
 interface CreditCardProps {
   productId : string;
   userId : string;
   price : number;
-  formMessages : FormMessages
+  formMessages : FormMessages;
 }
 
 export default function CreditCard({ productId, userId, price, formMessages }: CreditCardProps) {
 
   const { toast } = useToast()
   const [isPending, startTransition] = React.useTransition()
+  const [htmlContent, setHtmlContent] = React.useState<string | null>(null);
+  const [htmlUrl, setHtmlUrl] = React.useState<string | null>(null);
 
-  // 1. Define your form.
+  const router = useRouter()
+
+
+  const handleRedirect = (htmlContent: string) => {
+    // Create a Blob from the HTML string
+    const htmlBlob = new Blob([htmlContent], { type: 'text/html' });
+
+    // Create an object URL from the Blob
+    const url = URL.createObjectURL(htmlBlob);
+
+    // Open the URL in a new tab
+    window.open(url, '_blank');
+  };
+
   const form = useForm<z.infer<typeof creditCardSchema>>({
     resolver: zodResolver(creditCardSchema),
     shouldFocusError: true,
@@ -42,23 +58,45 @@ export default function CreditCard({ productId, userId, price, formMessages }: C
     shouldUseNativeValidation: false,
   })
 
-  // Define a submit handler.
   const handleSubmit = (values: z.infer<typeof creditCardSchema>) => {
     startTransition(async () => {
+      console.log(values)
       try {
         const result = await handleProductPurchase(
           {
-            price: price,
+            price: price.toString(),
             productId: parseInt(productId),
             userId: userId,
             creditCardInfo: values
           }
         )
         if (result) {
-          toast({
-            title: formMessages.creditCard.messages.payment,
-            description: formMessages.creditCard.messages.paymentSuccessfullyMade,
-          })
+          if(result.Sonuc === "3D" && result.UCD_HTML) {
+            handleRedirect(result.UCD_HTML);
+          } else if (result.Sonuc === "3D" && result.UCD_URL) {
+            router.push(result.UCD_URL)
+          }
+          else if(result.Sonuc === "success") {
+            toast({
+              title: formMessages.creditCard.messages.payment,
+              description: formMessages.creditCard.messages.paymentSuccessfullyMade,
+            })
+            router.push("/dashboard")
+          } else {
+            if (result.message === "priceMismatch" || result.message === "paymentFailed") {
+              toast({
+                title: formMessages.creditCard.messages[`${result.message}`] || formMessages.creditCard.messages.payment,
+                description: formMessages.creditCard.messages.paymentFailed,
+                variant: "destructive",
+              })
+            }else {
+              toast({
+                title: formMessages.creditCard.messages.payment,
+                description: result.message,
+                variant: "destructive",
+              })
+            }
+          }
         }else {
           toast({
             title: formMessages.creditCard.messages.payment,
@@ -77,9 +115,11 @@ export default function CreditCard({ productId, userId, price, formMessages }: C
     })
   }
 
-
   return (
     <div className="flex min-h-screen space-y-6 flex-col items-center justify-between bg-slate-100 p-6">
+      { htmlUrl &&
+        <iframe src={htmlUrl} title="Payment Redirect" />
+      }
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(handleSubmit)}
@@ -111,13 +151,13 @@ export default function CreditCard({ productId, userId, price, formMessages }: C
                       {formMessages.creditCard.messages.expDate}:
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="12/24" onChangeCapture={(e)=>{
+                      <Input placeholder="12/24" onChangeCapture={(e) => {
                         // @ts-ignore
-                        if(e.currentTarget.value.length > 1 && e.currentTarget.value.indexOf("/") === -1 && e.nativeEvent.inputType !== 'deleteContentBackward') {
+                        if (e.currentTarget.value.length > 1 && e.currentTarget.value.indexOf("/") === -1 && e.nativeEvent.inputType !== 'deleteContentBackward') {
 
                           e.currentTarget.value = e.currentTarget.value.substring(0, 2) + "/" +
-                        e.currentTarget.value.substring(2)
-                      }
+                            e.currentTarget.value.substring(2)
+                        }
                       }} {...field} />
                     </FormControl>
                     <FormMessage />
@@ -153,6 +193,14 @@ export default function CreditCard({ productId, userId, price, formMessages }: C
                 </FormItem>
               )}
             />
+            <div className="flex py-4 items-center ">
+              <div>
+                <input type="checkbox" {...form.register("is3DSecure")} id="is3DSecure" />
+              </div>
+              <label htmlFor="is3DSecure" className="pl-1 text-slate-800">
+                {formMessages.creditCard.messages.use3DSecure}
+              </label>
+            </div>
             <Button disabled={isPending} className="w-full" type="submit">
               {isPending ? (
                 <Icons.spinner className="size-2 animate-spin" aria-hidden="true" />
