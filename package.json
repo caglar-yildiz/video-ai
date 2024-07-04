@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@auth/prisma-adapter": "^1.5.0",
-    "@caglar-yildiz/parampos": "1.1.11",
+    "@caglar-yildiz/parampos-integration": "1.1.11",
     "@formatjs/intl-localematcher": "^0.5.4",
     "@hookform/resolvers": "^3.3.4",
     "@prisma/client": "^5.16.1",
